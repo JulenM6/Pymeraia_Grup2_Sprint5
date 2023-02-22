@@ -16,8 +16,6 @@ class ReportFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public static $counter = 0;
-
     public function definition()
     {
 
@@ -25,13 +23,9 @@ class ReportFactory extends Factory
 
 
         return [
-            'name' => str_pad(self::$counter++, 4, '0', STR_PAD_LEFT),
+            'name' => $this->faker->unique()->name(),
             'questionnaire_user_id' => $this->faker->randomElement($questionnaire_user_id),
             'date' => $this->faker->date(),
         ];
-    }
-    public function initialize()
-    {
-        self::$counter = 0;
     }
 }

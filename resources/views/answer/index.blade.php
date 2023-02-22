@@ -7,17 +7,18 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    {{__('answer.id')}}
+                    ID
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    {{__('answer.name')}}
+                    Answer
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    {{__('answer.recommendation')}}
+                    recommendation
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    {{__('actions')}}
                 </th>
+
+
             </tr>
         </thead>
         <tbody>

@@ -49,10 +49,12 @@ Route::get('/question/{id}/activate', [QuestionController::class, 'activate'])->
 Route::get('/question/{id}/unActivate', [QuestionController::class, 'unActivate'])->name('question.unActivate');
 Route::get('question/hidden', [QuestionController::class, 'hidden'])->name('question.hidden');
 
+// Route::post('/question/formQuestion', [QuestionController::class, 'store']);
 
 
 //Questionnaire ROUTES
 Route::resource('questionnaire',QuestionnaireController::class)->except(['show']);
+//Route::get('questionnaire/create_questionnaire',[QuestionnaireController::class, 'create_questionnaire'])->name('questionnaire.create_questionnaire');
 Route::get('questionnaire/hidden', [QuestionnaireController::class, 'hidden'])->name('questionnaire.hidden');
 Route::get('questionnaire/{id}/activate', [QuestionnaireController::class, 'activate'])->name('questionnaire.activate');
 Route::get('questionnaire/{id}/unActivate', [QuestionnaireController::class, 'unActivate'])->name('questionnaire.unActivate');

@@ -30,7 +30,7 @@ class AnswerFactory extends Factory
         $question_id = Question::all()->pluck('id')->toArray();
 
         return [
-            'name' => $this->faker->randomElement(['Si','No', 'Pot Ser']),
+            'name' => $this->faker->unique()->name(),
             'recommendation' => $this->faker->text(),
             'risk_id' => $this->faker->randomElement($risk_id),
             'intervention_id' => $this->faker->randomElement($intervention_id),

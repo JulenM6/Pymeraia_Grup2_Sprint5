@@ -4,39 +4,18 @@
 <a href="https://github.com/sergiomonts/Sprint4_Equip2_Projecte-Global.git">Aquest projecte està emmagatzemat en aquest repositori</a>
 </p>
 
-## INICIA EL PROJECTE PER PRIMERA VEGADA UBUNTU.
+## INICIA EL PROJECTE PER PRIMERA VEGADA.
 
 <p align="left">
 #1 Duplicar el fitxer .env.example i cambiar el nom a .env
-<br>
 #2 Configurar credencials base de dades
-<br>
 #3 Fer Composer Install (Nunca composer update)
-<br>
 #4 Fer npm Install
-<br>
 #5 Per ficar en funcionament el projecte docker-compose up -d
-<br>
 #6 Fer la comanda npm run dev
-</p>
 
-## INICIA EL PROJECTE PER PRIMERA VEGADA WINDOWS.
-<p align="left">
-#1 Duplicar el fitxer .env.example i cambiar el nom a .env
-<br>
-#2 Configurar credencials base de dades
-<br>
-#3 Fer Composer Install (Nunca composer update)
-<br>
-#4 Fer npm Install
-<br>
-#5 Instalar WSL 2 en docker y ubuntu 20.04 en microsoft store
-<br>
-#6 Per ficar en funcionament el projecte executar en la terminal de ubuntu dins del projecte sail up -d
-<br>
-#7 Fer la comanda npm run dev
-</p>
 
+</p>
 
 ## Sobre la instal·lació
 
@@ -52,7 +31,7 @@ Generar LARAVEL KEY PROJECT
 <a href="https://stillat.com/blog/2016/12/07/laravel-artisan-key-command-the-keygenerate-command">Web amb explicació.</a>
 <br>
 <p>comanda: php artisan key:generate</p>
-
+</p>
 
 ## Solució Problemes Composer Install
 
@@ -109,3 +88,20 @@ Modificar aquesta linia del fitxer .env
 DB_HOST=mysql
 <br>
 </p>
+
+<h1>## SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for mysql failed: Temporary failure in name resolution (SQL: SHOW FULL TABLES WHERE table_type = 'BASE TABLE')</h1>
+
+<p align="left">
+UBUNTU
+docker-compose down -v (borrar la carpeta /volumes)
+docker-compose up -d (arrancar docker)
+php artisan config:cache (borra cache)
+php artisan migrate:fresh --seed (fer la migració)
+npm install (tornar a instalar npm)
+composer install (tornar a instalar composer)
+<br>
+DB_HOST=127.0.0.1
+<br>
+</p>
+
+

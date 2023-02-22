@@ -12,7 +12,6 @@ class QuestionnaireController extends Controller
     {
         $questionnaires = Questionnaire::where('hidden', false)
             ->orWhereNull('hidden')
-            ->orderBy('created_at', 'desc')
             ->simplePaginate(10);
 
         return view('questionnaire.index', compact('questionnaires'));
@@ -21,7 +20,6 @@ class QuestionnaireController extends Controller
     public function hidden()
     {
         $questionnaires = Questionnaire::whereNotNull('hidden')
-            ->orderBy('created_at', 'desc')
             ->simplePaginate(10);
 
         return view('questionnaire.hidden', compact('questionnaires'));

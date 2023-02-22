@@ -7,7 +7,7 @@
 
         <div class="max-w-7xl pb-3 overflow-hidden mx-auto sm:rounded-lg">
             <x-button-link href="{{ $questionnaire->hidden != null ? route('questionnaire.hidden') : route('questionnaire.index') }}">
-                <i class="fa-solid fa-arrow-left"> {{__('go.back')}}</i>
+                <i class="fa-solid fa-arrow-left">Volver</i>
             </x-button-link>
         </div>
 

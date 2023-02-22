@@ -8,25 +8,8 @@
     "questionnaire.unactive" : "Cuestionarios Inactivos",
     "questionnaire.create" : "Crear Cuestionario",
 
-    "report.id" : "Id Informe",
-    "report.name" : "Nombre Informe",
-    "report.date" : "Fecha Informe",
-
-    "go.back" : "Volver",
-
     "actions" : "Acciones",
-    "type_measure" : "Medida",
 
-    "risk" : "Riesgo",
-    "probability" : "Probabilidad",
-    "intervention" : "Intervencion",
-    "impact" : "Impact",
-
-    "share": "Compartir",
-
-
-
-    "question" : "Pregunta",
     "question.description" : "Descripción",
     "question.name" : "Nombre de la Pregunta",
     "assigned.questions" : "Preguntas Asignadas",
@@ -35,16 +18,7 @@
     "question.unactive" : "Preguntas Inactivas",
     "question.create" : "Crear Pregunta",
 
-    "recommendation" : "Recomendación",
-
-    "answer" : "Respuesta",
     "add.answer": "Crear Preguntas",
-    "update.answer": "Actualizar Pregunta",
-    "answer.id" : "Id Respuesta",
-    "answer.name" : "Nombre Respuesta",
-    "answer.recommendation" : "Recomendación Respuesta",
-
-
 
     "messages.option": "Elige Una Opción",
     "article": "Articulo",

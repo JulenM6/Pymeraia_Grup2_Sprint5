@@ -68,6 +68,7 @@ export default {
         return {
             questionnaire_name: '',
             questionnaire_autor: '',
+            questionnaire_date: '',
             sending: false,
         }
     },
@@ -81,6 +82,7 @@ export default {
             axios.post('/questionnaire', {
                 questionnaire_name: this.questionnaire_name,
                 questionnaire_autor: this.questionnaire_autor,
+                questionnaire_date: this.questionnaire_date,
 
             })
                 .then(response => {

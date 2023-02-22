@@ -49,14 +49,14 @@
                             <i class="fa-regular fa-pen-to-square "></i>
                         </x-button-edit>
                         <x-button-activate href="{{route('question.activate', $question)}}">
-                            <i class="fa-solid fa-arrow-up"></i>
+                            <i class="fa-regular fa-trash-can"></i>
                         </x-button-activate>
                     </th>
                 </tr>
             @endforeach
 
     <!-- This example requires Tailwind CSS v2.0+ -->
-
+   
             </tbody>
         </table>
 
