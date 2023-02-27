@@ -17,6 +17,7 @@ class QuestionController extends Controller
     public function index(){
         //pagina principal de informes mostra llistat informes
         $questions = Question::where('hidden', false)
+        ->orderBy('id','desc')
         ->orWhereNull('hidden')
         ->simplePaginate(10);
 

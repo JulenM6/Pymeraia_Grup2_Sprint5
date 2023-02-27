@@ -20,10 +20,18 @@
                     </div>
 
                     <div>
-                        <x-input-label for="cost_per_hour"  :value="__('question.description')"/>
+                        <x-input-label for="description"  :value="__('question.description')"/>
 
                         <x-text-input id="description" class="block mt-1 w-full" type="text" name="description"
                                       value="{{$question->description}}" required autofocus/>
+
+                        <x-input-error :messages="$errors->get('text')" class="mt-2"/>
+                    </div>
+                    <div>
+                        <x-input-label for="recommendation"  :value="__('question.recommendation')"/>
+
+                        <x-text-input id="recommendation" class="block mt-1 w-full" type="text" name="recommendation"
+                                      value="{{$question->recommendation}}" required autofocus/>
 
                         <x-input-error :messages="$errors->get('text')" class="mt-2"/>
                     </div>

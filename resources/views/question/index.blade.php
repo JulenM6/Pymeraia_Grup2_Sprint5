@@ -45,7 +45,7 @@
                         {{ $question->description }}
                     </th>
                     <th class="flex items-center px-6 py-4 space-x-3">
-                        <x-button-edit class="openModal" href="{{route('question.edit', $question)}}" >
+                        <x-button-edit href="{{route('question.edit', $question)}}" >
                             <i class="fa-regular fa-pen-to-square "></i>
                         </x-button-edit>
                         <x-button-activate href="{{route('question.unActivate', $question)}}">
