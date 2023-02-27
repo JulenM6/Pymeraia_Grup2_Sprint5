@@ -13,6 +13,7 @@ class Report extends Model
     protected $fillable = [
         'name',
         'user_id',
+        'questionnaire_id',
         'date',
         'hidden'
     ];
@@ -24,5 +25,10 @@ class Report extends Model
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    public function questionnaires()
+    {
+    return $this->belongsTo(Questionnaire::class);
     }
 }

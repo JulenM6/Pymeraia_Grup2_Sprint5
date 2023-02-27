@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50)->nullable(false);
-            $table->foreignId('questionnaire_user_id')->references('id')->on('questionnaire_user');
+            $table->foreignId('questionnaire_id')->references('id')->on('questionnaires');
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->date('date')->nullable(false);
             $table->date('hidden')->nullable()->default(null);
             $table->timestamps();
