@@ -9,8 +9,7 @@
                 <div class="flex justify-center">
                     <div class="w-10/12">
                         <div>
-                            <label class="block font-medium text-label text-gray-700" for="questionnaire_name">Nombre
-                                del Cuestionario</label>
+                            <label class="block font-medium text-label text-gray-700" for="questionnaire_name">{{ $t('questionnaire.name') }}</label>
                         </div>
                         <div>
                             <input

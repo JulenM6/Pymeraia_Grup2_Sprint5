@@ -4,6 +4,8 @@ import { createI18n } from 'vue-i18n'
 import '@mdi/font/css/materialdesignicons.css'
 import RouterWeb from './router/index'
 import es from '../../lang/es.json'
+import en from '../../lang/en.json'
+import ca from '../../lang/ca.json'
 
 
 import App from "./components/Navbar.vue";
@@ -19,6 +21,8 @@ const i18n = createI18n({
   locale: 'es',
   messages: {
     es,
+    en,
+    ca
   }
 })
 app.use(i18n).mount('#app')
