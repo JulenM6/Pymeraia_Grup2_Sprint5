@@ -20,7 +20,7 @@ class Report extends Model
 
     public function results(): BelongsToMany
     {
-        return $this->belongsToMany(\mysql_xdevapi\Result::class)->withTimestamps();
+        return $this->belongsToMany(Result::class)->withTimestamps();
     }
 
     public function user(){
@@ -30,5 +30,9 @@ class Report extends Model
     public function questionnaires()
     {
     return $this->belongsTo(Questionnaire::class);
+    }
+
+    public function questions(){
+        return $this->belongsTo(Question::class);
     }
 }
