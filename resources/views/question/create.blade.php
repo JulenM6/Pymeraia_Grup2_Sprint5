@@ -2,7 +2,7 @@
 
 @section('content')
     <div>
-        <router-view></router-view>
+        <form-component />
     </div>
     <script>
         window.risks = @json($risks);

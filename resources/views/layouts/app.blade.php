@@ -15,27 +15,30 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- CSS include -->
     @vite('resources/css/app.css')
 </head>
 
 <body class="flex flex-col min-h-screen">
-<div class="sticky top-0 left-0 right-0">
-    <!-- Vue.js Header and Navbar -->
-    <div id="navbar"></div>
-</div>
-
-<main>
     <div id="app">
-    @yield('content')
+        <div class="sticky top-0 left-0 right-0 z-10">
+            <!-- Vue.js Header and Navbar -->
+            <navbar />
+        </div>
+        <main>
+            @yield('content')
+        </main>
     </div>
-</main>
-<!-- Vue.js javascript -->
-@vite('resources/js/app.js')
-<!-- Footer include -->
-@include('components.footer')
+    <!-- Vue.js javascript -->
+    @vite('resources/js/app.js')
+    <!-- Footer include -->
+    @include('components.footer')
 </body>
 
 </html>

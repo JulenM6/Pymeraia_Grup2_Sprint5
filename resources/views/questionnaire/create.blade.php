@@ -4,7 +4,7 @@
 
 
     <div>
-        <router-view></router-view>
+        <questionnaire-component />
     </div>
     <script>
         window.questionnaires = @json($questionnaires);

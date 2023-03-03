@@ -1,26 +1,25 @@
 <footer class="bg-black text-center lg:text-center mt-auto p-6">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         <div>
-            <a class="text-gray-100" href="#"><img src="../img/logo_pymeshield_black.png" alt="Logo" class="inline-block mr-1 w-12">© pymeshield
-                by Pymeralia</a>
+            <a class="text-gray-100" href="#"><img src="../img/logo_pymeshield_black.png" alt="Logo" class="inline-block mr-1 w-12">{{__('footer.by')}}</a>
         </div>
         <div>
-            <h6>Acerca de Pymeralia</h6>
+            <h6>{{__('footer.about')}}</h6>
             <ul>
-                <li><a href="#">Política de privacidad</a></li>
-                <li><a href="#">Política de cookies</a></li>
-                <li><a href="#">Aviso legal</a></li>
+                <li><a href="#">{{__('footer.privacy')}}</a></li>
+                <li><a href="#">{{__('footer.cookies')}}</a></li>
+                <li><a href="#">{{__('footer.terms')}}</a></li>
             </ul>
         </div>
         <div>
-            <h6>Contacto</h6>
+            <h6>{{__('footer.contact')}}</h6>
             <ul>
                 <li><a href="tel:682849274">682849274</a></li>
                 <li><a href="mailto:support@pymeshield.com">info@pymeshield.com</a></li>
             </ul>
         </div>
         <div>
-            <h6>RRSS</h6>
+            <h6>{{__('footer.rrss')}}</h6>
             <ul>
                 <li>
                     <a href="#!" role="button">

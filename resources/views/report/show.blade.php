@@ -7,31 +7,31 @@
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    ID
+                    {{__('table.id')}}
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    answers
+                    {{__('report.answer')}}
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    recommendation
+                    {{__('report.recommendation')}}
                 </th>
                 <th scope="col" class="px-6 py-3">
-                   questions
+                    {{__('report.question')}}
                 </th>
                 <th scope="col" class="px-6 py-3">
-                   type_measures
+                    {{__('report.type.measure')}}
                 </th>
                 <th scope="col" class="px-6 py-3">
-                   risk
+                    {{__('report.risk')}}
                 </th>
                 <th scope="col" class="px-6 py-3">
-                   probabilities
+                    {{__('report.probability')}}
                 </th>
                 <th scope="col" class="px-6 py-3">
-                   interventions
+                    {{__('report.intervention')}}
                 </th>
                 <th scope="col" class="px-6 py-3">
-                   impacts
+                    {{__('report.impact')}}
                 </th>
             </tr>
         </thead>
@@ -74,7 +74,7 @@
     </table>
 </div>
 <div class= "flex justify-end">
-<button  class="botonPersonalizado">Share</button>
+<button  class="botonPersonalizado">{{__('table.share')}}</button>
 </div>
 
 @endsection
