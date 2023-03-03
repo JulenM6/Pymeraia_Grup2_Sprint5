@@ -14,11 +14,14 @@ class InterventionFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
+    public static $counter = 0;
+
     public function definition()
     {
+        $array = ['Inmediata', 'A largo plazo', 'A corto plazo'];
         return [
-            'name' => $this->faker->unique()->name(),
-            'hidden' => $this->faker->date(),
+            'name' => $array[self::$counter++ % count($array)],
         ];
     }
 }
