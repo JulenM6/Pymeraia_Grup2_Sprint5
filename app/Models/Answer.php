@@ -4,7 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Answer extends Model
 {
@@ -24,43 +26,44 @@ class Answer extends Model
     ];
 
 
-    public function results(): BelongsToMany
+    public function reports(): BelongsToMany
     {
         return $this->belongsToMany(Result::class)->withTimestamps();
     }
 
-    public function impacts()
+    public function tasks(): HasMany
+    {
+        return $this->hasMany(Task::class)->withTimestamps();
+    }
+
+    public function impact(): BelongsTo
     {
         return $this->belongsTo(Impact::class);
     }
 
-    public function risks()
+    public function risk(): BelongsTo
     {
         return $this->belongsTo(Risk::class);
     }
 
-    public function interventions()
+    public function intervention(): BelongsTo
     {
         return $this->belongsTo(Intervention::class);
     }
 
-    public function typemeasures()
+    public function typemeasure(): BelongsTo
     {
         return $this->belongsTo(TypeMeasure::class);
     }
 
-    public function probabilities()
+    public function probability(): BelongsTo
     {
         return $this->belongsTo(Probability::class);
     }
 
-    public function question()
+    public function question(): BelongsTo
     {
         return $this->belongsTo(Question::class);
     }
 
-    public function tasks()
-    {
-        return $this->hasMany(Task::class);
-    }
 }

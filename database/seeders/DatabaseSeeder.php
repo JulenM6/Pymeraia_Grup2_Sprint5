@@ -40,7 +40,8 @@ class DatabaseSeeder extends Seeder
         $this->call(QuestionSeeder::class);
         $this->call(QuestionQuestionnaireSeeder::class);
         $this->call(AnswerSeeder::class);
-        $this->call(ResultSeeder::class);
+        $this->call(AnswerReportSeeder::class);
         $this->call(TaskSeeder::class);
+        $this->call(OptionSeeder::class);
     }
 }

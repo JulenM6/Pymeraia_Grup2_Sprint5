@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Result;
+use App\Models\AnswerReport;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class ResultSeeder extends Seeder
+class AnswerReportSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +15,6 @@ class ResultSeeder extends Seeder
      */
     public function run()
     {
-        Result::factory(12)->create();
+        AnswerReport::factory(12)->create();
     }
 }

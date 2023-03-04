@@ -12,7 +12,6 @@ class AuditController extends Controller
     {
 
         $survey = Report::find($id);
-        $survey->questionnaires()->get();
         $questions = DB::table('questions')
         ->select('questions.description')
         ->join('question_questionnaire','question_questionnaire.questionnaire_id','=','questions.id')

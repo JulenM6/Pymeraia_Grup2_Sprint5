@@ -21,8 +21,8 @@ class ReportController extends Controller
         //pagina que mostra els detalls de informes
         $report = DB::table('reports')
             ->select('answers.id', 'answers.name as answers', 'answers.recommendation as recommendation', 'questions.name as questions', 'type_measures.name as type_measures', 'risks.name as risks', 'probabilities.name as probabilities', 'interventions.name as interventions', 'impacts.name as impacts')
-            ->join('results', 'results.report_id', '=', 'reports.id')
-            ->join('answers', 'results.answer_id', '=', 'answers.id')
+            ->join('answer_report', 'answer_report.report_id', '=', 'reports.id')
+            ->join('answers', 'answer_report.answer_id', '=', 'answers.id')
             ->join('impacts', 'impacts.id', '=', 'answers.impact_id')
             ->join('interventions', 'interventions.id', '=', 'answers.intervention_id')
             ->join('probabilities', 'probabilities.id', '=', 'answers.probability_id')

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class TypeMeasure extends Model
 {
@@ -15,8 +16,8 @@ class TypeMeasure extends Model
         'hidden'
     ];
 
-    public function answers()
+    public function answers(): HasMany
     {
-        return $this->hasOne(Answer::class);
+        return $this->hasMany(Answer::class);
     }
 }

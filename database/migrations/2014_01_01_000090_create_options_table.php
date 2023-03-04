@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('results', function (Blueprint $table) {
+        Schema::create('options', function (Blueprint $table) {
             $table->id();
-            $table->date('hidden');
-            $table->foreignId('answer_id')->references('id')->on('answers');
-            $table->foreignId('report_id')->references('id')->on('reports');
-            $table->timestamps(); 
+            $table->string('description');
+            $table->longText('terms');
+            $table->longText('privacy_policy');
+            $table->longText('cookies_policy');
+            $table->timestamps();
         });
     }
 
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('results');
+        Schema::dropIfExists('options');
     }
 };
