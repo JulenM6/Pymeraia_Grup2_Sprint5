@@ -18,6 +18,8 @@ class AuditController extends Controller
         ->where('question_questionnaire.questionnaire_id','=',$id)
         ->paginate(1);
 
+        $report= Report::with('answers.typemeasure', 'answers.risk', 'answers.probability', 'answers.intervention', 'answers.impact', 'answers.question')->find($id);
+
         return view('audit.show', compact('survey', 'questions'));
     }
 }

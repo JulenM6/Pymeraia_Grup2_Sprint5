@@ -51,7 +51,7 @@ class Answer extends Model
         return $this->belongsTo(Intervention::class);
     }
 
-    public function typemeasure(): BelongsTo
+    public function typeMeasure(): BelongsTo
     {
         return $this->belongsTo(TypeMeasure::class);
     }
