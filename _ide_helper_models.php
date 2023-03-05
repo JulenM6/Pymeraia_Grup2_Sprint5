@@ -756,7 +756,7 @@ namespace App\Models{
  * @property string|null $hidden
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Answer $answer
+ * @property-read \App\Models\Answer|null $answers
  * @property-read \App\Models\Budget|null $budgets
  * @property-read \App\Models\Impact|null $impacts
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
