@@ -28,12 +28,12 @@ class Answer extends Model
 
     public function reports(): BelongsToMany
     {
-        return $this->belongsToMany(Result::class)->withTimestamps();
+        return $this->belongsToMany(Report::class)->withTimestamps();
     }
 
     public function tasks(): HasMany
     {
-        return $this->hasMany(Task::class)->withTimestamps();
+        return $this->hasMany(Task::class);
     }
 
     public function impact(): BelongsTo

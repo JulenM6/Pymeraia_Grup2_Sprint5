@@ -26,12 +26,12 @@ class Questionnaire extends Model
 
     public function tasks(): HasMany
     {
-        return $this->hasMany(Task::class)->withTimestamps();
+        return $this->hasMany(Task::class);
     }
 
     public function reports(): HasMany
     {
-        return $this->hasMany(Report::class)->withTimestamps();
+        return $this->hasMany(Report::class);
     }
 
 }

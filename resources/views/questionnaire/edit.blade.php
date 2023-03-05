@@ -92,7 +92,7 @@
                     </div>
                     <div>
                         <x-button-check>
-                            <i class="fa-solid fa-check text-lg"></i>
+                            <i class="fa-solid fa-arrow-right text-lg"></i>
                         </x-button-check>
                     </div>
                 </div>
@@ -152,7 +152,7 @@
                     </div>
                     <div>
                         <x-button-check>
-                            <i class="fa-solid fa-check text-lg"></i>
+                            <i class="fa-solid fa-arrow-left text-lg"></i>
                         </x-button-check>
                     </div>
                 </div>
