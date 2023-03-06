@@ -17,6 +17,7 @@ class QuestionController extends Controller
     public function index(){
         //pagina principal de informes mostra llistat informes
         $questions = Question::where('hidden', false)
+        ->orderBy('id','desc')
         ->orWhereNull('hidden')
         ->simplePaginate(10);
 
@@ -106,11 +107,21 @@ class QuestionController extends Controller
         
     }
 
-    public function edit(Question $question){
+        public function edit(Question $question)
+{
+    $answers = Answer::where('question_id', $question->id)->get();
+    $risks = Risk::all();
 
-        //pagina que mostra els detalls de informes
-        return view('question.edit', compact('question'));
+    $risk = $risks->find($answers[0]->risk_id);
+  
+    $risk1 = null;
+
+    if ($answers->count() > 1) {
+        $risk1 = $risks->find($answers[1]->risk_id);
     }
+
+    return view('question.edit', compact('question', 'answers', 'risk', 'risk1'));
+}
 
     public function update(Request $request, $id)
     {

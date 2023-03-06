@@ -33,4 +33,14 @@ class AnswerControler extends Controller
         return view('answer.create');
      }
 
+    //public function insert(Request $request)
+    //{
+       // $answer = new Answer;
+       // $answer->name = $request->name;
+       // $answer->recommendation = $request->recommendation;
+       // $answer->save();
+
+      //  return redirect()->route('answer.index', compact('answer'));
+    //}
+
 }

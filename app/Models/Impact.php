@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Impact extends Model
 {
@@ -16,12 +17,12 @@ class Impact extends Model
         'hidden'
     ];
 
-    public function answers()
+    public function answers(): HasMany
     {
-        return $this->hasOne(Answer::class);
+        return $this->hasMany(Answer::class);
     }
 
-    public function tasks()
+    public function tasks(): HasMany
     {
         return $this->hasMany(Task::class);
     }

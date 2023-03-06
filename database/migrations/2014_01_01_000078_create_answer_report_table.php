@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('questionnaire_user', function (Blueprint $table) {
+        Schema::create('answer_report', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('questionnaire_id')->references('id')->on('questionnaires');
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->date('hidden');
+            $table->foreignId('answer_id')->references('id')->on('answers');
+            $table->foreignId('report_id')->references('id')->on('reports');
             $table->timestamps();
         });
     }
@@ -28,6 +29,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('questionnaire_user');
+        Schema::dropIfExists('results');
+        Schema::dropIfExists('answer_report');
     }
 };

@@ -4,7 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Report extends Model
 {
@@ -13,16 +15,23 @@ class Report extends Model
     protected $fillable = [
         'name',
         'user_id',
+        'questionnaire_id',
         'date',
         'hidden'
     ];
 
-    public function results(): BelongsToMany
+    public function answers(): BelongsToMany
     {
-        return $this->belongsToMany(\mysql_xdevapi\Result::class)->withTimestamps();
+        return $this->belongsToMany(Answer::class)->withTimestamps();
     }
 
-    public function user(){
+    public function user(): BelongsTo
+    {
         return $this->belongsTo(User::class);
+    }
+
+    public function questionnaire(): BelongsTo
+    {
+        return $this->belongsTo(Questionnaire::class);
     }
 }

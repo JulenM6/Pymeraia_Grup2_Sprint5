@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    
+
     use HasFactory;
     // Nom de la taula
     protected $table = 'categories';
@@ -18,7 +18,7 @@ class Category extends Model
         'course_id',
         'hidden'
     ];
-    
+
     public function courses()
     {
         return $this->belongsTo(Course::class);
@@ -36,7 +36,7 @@ class Category extends Model
 
     public function resource_urls()
     {
-        return $this->hasMany(ResourceUrl::class);
+        return $this->hasMany(ResourceURL::class);
     }
 
     public function activities()

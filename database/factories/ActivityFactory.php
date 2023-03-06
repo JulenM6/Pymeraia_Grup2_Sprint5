@@ -20,8 +20,8 @@ class ActivityFactory extends Factory
         $category_id = Category::all()->pluck('id')->toArray();
 
         return [
-            'name'=>$this->faker->name(255),
-            'description'=>$this->faker->name(255),
+            'name'=>$this->faker->company(),
+            'description'=>$this->faker->text(),
             'start_date'=>$this->faker->date(),
             'final_date'=>$this->faker->date(),
             'category_id'=>$this->faker->randomElement($category_id),

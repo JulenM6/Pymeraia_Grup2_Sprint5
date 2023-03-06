@@ -9,7 +9,7 @@
                 <div class="flex justify-center">
                     <div class="w-10/12">
                         <div>
-                            <label class="block font-medium text-label text-gray-700" for="question">Pregunta</label>
+                            <label class="block font-medium text-label text-gray-700" for="question">{{ $t('question') }}</label>
                         </div>
                         <div>
                             <input
@@ -39,6 +39,9 @@
                         </div>
                     </div>
                 </div>
+
+            <details>
+                <summary>Respuesta Afirmativa</summary>
                 <div class="flex justify-center">
                     <div class="w-10/12">
                         <div>
@@ -137,6 +140,9 @@
                         </select>
                     </div>
                 </div>
+            </details>
+            <details>
+                <summary>Respuesta Negativa</summary>
                 <div class="flex justify-center">
                     <div class="w-10/12">
                         <div>
@@ -234,6 +240,7 @@
                         </select>
                     </div>
                 </div>
+                </details>
 
 
 
@@ -250,7 +257,7 @@
             </div>
         </form>
     </div>
-    
+
 </template>
 <script>
     import axios from 'axios';

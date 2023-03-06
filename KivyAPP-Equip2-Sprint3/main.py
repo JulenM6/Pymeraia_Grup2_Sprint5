@@ -24,21 +24,7 @@ from kivymd.uix.textfield import MDTextField
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.widget import Widget
 
-class MainScreen(BoxLayout):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        script_location = Path(__file__).absolute().parent #indicamos donde se encuentra el archivo actual
-        with open(script_location / "informe_classes.json", "rt") as f:
-            self.data = json.load(f)
-        self.search_field = MDTextField(hint_text="Search")
-        self.search_field.bind(text=self.search)
-        self.add_widget(self.search_field)
 
-    def search(self, instance, value):
-        result = [item for item in self.data if value in item["name"]]
-        # show the result in a way you prefer, e.g.
-        for item in result:
-            print("Name:", item["name"])
 
 
 class ContentNavigationDrawer(MDBoxLayout):
