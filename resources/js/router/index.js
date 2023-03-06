@@ -5,6 +5,7 @@ const ContactoComponent = () => import ('../web/ContactoCom.vue');
 const formComponent = () => import ('../components/form.vue');
 const Questionnaire_FormComponent = () => import ('../components/questionnaire_form.vue');
 
+
 const test = () => import ('../web/test.vue');
 const routes = [
     {path: '/patata', name: 'patata', component: ContactoComponent},
