@@ -1,9 +1,7 @@
 import { createApp, defineAsyncComponent } from "vue/dist/vue.esm-bundler";
 import { createI18n } from 'vue-i18n'
 import '@mdi/font/css/materialdesignicons.css'
-import es from '../../lang/es.json'
-import en from '../../lang/en.json'
-import ca from '../../lang/ca.json'
+import messages from '@intlify/unplugin-vue-i18n/messages'
 
 
 const app = createApp({})
@@ -26,12 +24,8 @@ app.component('survey', survey);
 
 const i18n = createI18n({
     locale: 'es',
-    messages: {
-        es,
-        en,
-        ca
-    }
-})
+    messages,
+  })
 
 // se monta la app
 app.use(i18n).mount('#app')
