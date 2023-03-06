@@ -21,6 +21,9 @@ app.component('form-component', formComponent);
 const questionnaireFormComponent = defineAsyncComponent(() => import('./components/questionnaire_form.vue'));
 app.component('questionnaire-component', questionnaireFormComponent);
 
+const survey = defineAsyncComponent(() => import('./components/survey.vue'));
+app.component('survey', survey);
+
 const i18n = createI18n({
     locale: 'es',
     messages: {
