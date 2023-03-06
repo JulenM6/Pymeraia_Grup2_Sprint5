@@ -4,9 +4,7 @@
 
 
     <div>
-        <router-view></router-view>
+        <questionnaire-component :questionnaires='{{json_encode($questionnaires)}}' />
     </div>
-    <script>
-        window.questionnaires = @json($questionnaires);
-    </script>
+
 @endsection

@@ -7,13 +7,13 @@
             <tr>
 
                 <th scope="col" class="px-6 py-3">
-                    ID
+                    {{__('table.id')}}
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Name
+                    {{__('table.name')}}
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Date
+                    {{__('table.date')}}
                 </th>
                 <th scope="col" class="px-6 py-3">
                 </th>
@@ -36,7 +36,7 @@
                 {{ $report->date }}
                 </td>
                 <td class="px-6 py-4">
-                <a href="{{ route('report.show', [$report->id]) }}" class="font-medium text-orange-600 dark:text-orange-500 hover:underline">Ver mas</a>
+                <a href="{{ route('report.show', [$report->id]) }}" class="font-medium text-orange-600 dark:text-orange-500 hover:underline">{{__('table.show.more')}}</a>
                 </td>
             </tr>
             @endforeach

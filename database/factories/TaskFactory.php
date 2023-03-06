@@ -30,12 +30,11 @@ class TaskFactory extends Factory
         $impact_id = Impact::all()->pluck('id')->toArray();
 
         return [
-            'accepted' => fake()->randomElement(['Si', 'No']), //randomElement tan solo permite coger los dos elementos dentro del parentesis
             'state' => fake()->randomElement(['ToDo', 'InProgress', 'Done']),
             'start_date' => fake()->dateTimeBetween('-1 year', 'now'),
             'final_date' => fake()->dateTimeBetween('-1 year', 'now'),
             'price' => fake()->randomFloat(2,0,100), //genera un número random con 2 decimales entre 0 y 100
-            'manages' => fake()->randomElement(['Pymeralia', 'Personalmente']),
+            'manages' => fake()->randomElement(['Me aconseja Pymeralia', 'Me lo gestiono yo', 'No aceptada']),
             'user_id' => $this->faker->randomElement($user_id), //hace referencia a la tabla con la que tiene llave foránea
             'questionnaire_id' => $this->faker->randomElement($questionnaire_id),
             'answer_id' => $this->faker->randomElement($answer_id),

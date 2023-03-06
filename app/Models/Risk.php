@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Risk extends Model
 {
@@ -14,8 +15,8 @@ class Risk extends Model
         'hidden'
     ];
 
-    public function answers()
+    public function answers(): HasMany
     {
-        return $this->hasOne(Answer::class);
+        return $this->hasMany(Answer::class);
     }
 }

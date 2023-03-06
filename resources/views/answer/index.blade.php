@@ -7,13 +7,13 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    ID
+                    {{__('table.id')}}
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Answer
+                    {{__('report.answer')}}
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    recommendation
+                    {{__('report.recommendation')}}
                 </th>
                 <th scope="col" class="px-6 py-3">
                 </th>
@@ -36,7 +36,7 @@
                 {{ $answer->recommendation }}
                 </td>
                 <td class="px-6 py-4">
-                <a href='answer/{{ $answer->id }}/edit' class="font-medium text-orange-600 dark:text-orange-500 hover:underline">Editar</a>
+                <a href='answer/{{ $answer->id }}/edit' class="font-medium text-orange-600 dark:text-orange-500 hover:underline">{{__('table.edit')}}</a>
                 </td>
             </tr>
             @endforeach

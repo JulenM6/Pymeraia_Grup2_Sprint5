@@ -16,16 +16,16 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group mb-3">
-                            <label for="">Answer</label>
+                            <label for="">{{__('report.answer')}}</label>
                             <input type="text" name="name" value="{{$answer->name}}" class="form-control m-2">
                         </div>
                         <div class="form-group mb-3">
-                            <label for="">Recommendation</label>
+                            <label for="">{{__('report.recommendation')}}</label>
                             <input type="text" name="recommendation" value="{{$answer->recommendation}}" class="form-control m-2">
                         </div>
 
                         <div class="form-group mb-3">
-                            <button type="submit" class="btn border-solid border-2 border-orange-500 p-2 rounded-md  ">Update answer</button>
+                            <button type="submit" class="btn border-solid border-2 border-orange-500 p-2 rounded-md  ">{{__('table.update')}}</button>
                         </div>
 
                     </form>

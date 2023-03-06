@@ -9,8 +9,7 @@
                 <div class="flex justify-center">
                     <div class="w-10/12">
                         <div>
-                            <label class="block font-medium text-label text-gray-700" for="questionnaire_name">Nombre
-                                del Cuestionario</label>
+                            <label class="block font-medium text-label text-gray-700" for="questionnaire_name">{{ $t('questionnaire.name') }}</label>
                         </div>
                         <div>
                             <input
@@ -26,14 +25,13 @@
                 <div class="flex justify-center">
                     <div class="w-10/12">
                         <div>
-                            <label class="block font-medium text-label text-gray-700" for="questionnaire_autor">Autor
-                                del Cuestionario</label>
+                            <label class="block font-medium text-label text-gray-700" for="questionnaire_autor">{{ $t('questionnaire.autor') }}</label>
                         </div>
                         <select id="questionnaire_autor"
                                 name="questionnaire_autor"
                                 v-model="questionnaire_autor"
                                 class="rounded-md shadow-sm border-gray-300 block mt-1 w-full focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                            <option value="" selected>Elige una Opción</option>
+                            <option value="" selected>{{ $t('messages.option') }}</option>
                             <option v-for="questionnaire in questionnaires" :value="questionnaire.autor"
                                     :key="questionnaire.id">{{ questionnaire.autor }}
                             </option>
@@ -46,7 +44,7 @@
                             class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-600 active:bg-gray-900 dark:hover:bg-gray-600 dark:active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150"
                             type="submit" value="Save"  v-bind:disabled="sending"
                             >
-                            Enviar
+                            {{ $t('form.send') }}
                         </button>
                     </div>
                 </div>
@@ -95,5 +93,6 @@ export default {
         }
     },
 }
+
 </script>
 

@@ -2,13 +2,6 @@
 
 @section('content')
     <div>
-        <router-view></router-view>
+        <form-component :risks='{{json_encode($risks)}}' :interventions='{{json_encode($interventions)}}' :type_measures='{{json_encode($type_measures)}}' :probabilities='{{json_encode($probabilities)}}' :impacts='{{json_encode($impacts)}}' />
     </div>
-    <script>
-        window.risks = @json($risks);
-        window.interventions = @json($interventions);
-        window.type_measures = @json($type_measures);
-        window.probabilities = @json($probabilities);
-        window.impacts = @json($impacts);
-    </script>
 @endsection

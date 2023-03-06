@@ -10,7 +10,7 @@ class Device extends Model
     use HasFactory;
 
     public function type() {
-        return $this->belongsTo(TypeDevice::class);
+        return $this->belongsTo(TypeDevice::class, 'type_device_id');
     }
 
     public function user() {

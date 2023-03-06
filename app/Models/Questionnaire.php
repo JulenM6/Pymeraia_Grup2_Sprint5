@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Questionnaire extends Model
 {
@@ -23,14 +24,14 @@ class Questionnaire extends Model
         return $this->belongsToMany(Question::class)->withTimestamps();
     }
 
-    public function users(): BelongsToMany
+    public function tasks(): HasMany
     {
-        return $this->belongsToMany(User::class)->withTimestamps();
+        return $this->hasMany(Task::class);
     }
 
-    public function tasks(): BelongsToMany
+    public function reports(): HasMany
     {
-        return $this->hasMany(Task::class)->withTimestamps();
+        return $this->hasMany(Report::class);
     }
 
 }

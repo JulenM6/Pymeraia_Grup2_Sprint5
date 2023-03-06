@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnswerControler;
+use App\Http\Controllers\AuditController;
 use App\Http\Controllers\QuestionnaireController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReportController;
@@ -62,4 +63,6 @@ Route::post('questionnaire/{questionnaire}/updateQuestion', [QuestionnaireContro
 Route::post('questionnaire/{questionnaire}/assignQuestion', [QuestionnaireController::class, 'assignQuestion'])->name('questionnaire.assignQuestion');
 Route::post('questionnaire/{questionnaire}/unassignQuestion', [QuestionnaireController::class, 'unassignQuestion'])->name('questionnaire.unassignQuestion');
 
+//Audits ROUTES
+Route::get('/audit/{id}', [AuditController::class, 'show'])->name('audit.survey');
 

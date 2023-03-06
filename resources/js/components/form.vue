@@ -9,7 +9,7 @@
                 <div class="flex justify-center">
                     <div class="w-10/12">
                         <div>
-                            <label class="block font-medium text-label text-gray-700" for="question">Pregunta</label>
+                            <label class="block font-medium text-label text-gray-700" for="question">{{ $t('question') }}</label>
                         </div>
                         <div>
                             <input
@@ -58,7 +58,7 @@
                         </div>
                     </div>
                 </div>
-            
+
 
                 <div class="flex justify-center">
                     <div class="w-10/12">
@@ -257,7 +257,7 @@
             </div>
         </form>
     </div>
-    
+
 </template>
 <script>
     import axios from 'axios';

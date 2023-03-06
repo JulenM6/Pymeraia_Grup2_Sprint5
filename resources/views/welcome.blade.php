@@ -2,6 +2,6 @@
 
 @section('content')
     <div>
-        <router-view/>
+
     </div>
 @endsection
