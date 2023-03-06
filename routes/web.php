@@ -40,6 +40,8 @@ Route::get('/', function () {
 
 /* Grup de rutes per a CRUD Informe */
 Route::resource('report',ReportController::class);
+Route::get('/report/{id}/pdf', [ReportController::class, 'pdf'])->name('report.pdf');
+
 
 /* Grup de rutes per a CRUD Respostes */
 Route::resource('answer',AnswerControler::class);

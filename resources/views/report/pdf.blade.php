@@ -35,6 +35,7 @@
                 </tr>
             </thead>
             <tbody>
+
                 @foreach ($report as $row)
                     <tr
                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -71,20 +72,5 @@
 
             </tbody>
         </table>
-    </div>
-    <div class="flex justify-end">
-
-        <?php
-        $idreport = \Request::getPathInfo();
-        $idreport = substr($idreport, 8);
-        ?>
-
-        {{-- {{$idreport = \Request::getPathInfo()}}
-        {{$idreport}}
-        {{$idreport = substr($idreport, 8)}} --}}
-
-        <a href="{{ route('report.pdf', [$idreport]) }}" class="botonPersonalizado">{{ __('table.share') }}</a>
-        {{-- href="{{route('report.{{id}}.pdf')}}" --}}
-        {{-- onclick="window.location.href='{{ route('report', ['id' => $id]) }}/pdf'" --}}
     </div>
 @endsection
