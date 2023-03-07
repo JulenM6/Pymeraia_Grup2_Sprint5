@@ -151,6 +151,7 @@ class QuestionController extends Controller
         $question->name = $request->name;
         $question->description = $request->description;
         $question->update();
+        $answer = Answer::find($id);
 
         return redirect()->route('question.index');
     }
