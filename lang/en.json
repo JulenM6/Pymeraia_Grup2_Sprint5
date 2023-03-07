@@ -54,5 +54,6 @@
     "usernav.close.session": "Sign off",
     "usernav.language.es": "Spanish",
     "usernav.language.en": "English",
-    "usernav.language.ca": "Catalan"
+    "usernav.language.ca": "Catalan",
+    "answer.name": "Answer name"
 }
