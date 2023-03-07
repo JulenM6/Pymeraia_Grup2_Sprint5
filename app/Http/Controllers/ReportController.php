@@ -40,6 +40,6 @@ class ReportController extends Controller
     {
         $report = Report::all();
         $pdf = PDF::loadView('report.pdf', compact('report'));
-        return $pdf->download('Report{{id}}.pdf');
+        return $pdf->download('Report.pdf');
     }
 }
