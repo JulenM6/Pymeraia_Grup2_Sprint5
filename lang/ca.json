@@ -55,5 +55,6 @@
     "usernav.language.es": "Castellà",
     "usernav.language.en": "Anglès",
     "usernav.language.ca": "Català",
-    "answer.name": "Nom resposta"
+    "answer.name": "Resposta",
+    "answer.reco": "Recomanació"
 }
