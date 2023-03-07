@@ -28,58 +28,112 @@
                         <x-input-error :messages="$errors->get('text')" class="mt-2"/>
                     </div>
                     @foreach ($answers as $answer)
-    @if (!$loop->first) {{-- Verifica si no es la primera iteración --}}
-        @continue  {{-- Salta a la siguiente iteración --}}
-    @endif
+                    @if (!$loop->first) {{-- Verifica si no es la primera iteració --}}
+                        @continue  {{-- Salta a la seguent iteració --}}
+                    @endif
 
-    {{-- Muestra los campos de respuesta para el primer registro --}}
-    <div>
-        <x-input-label for="name" :value="__('answer.name')" />
+                    {{-- Mostra els camps de resposta per al primer regisre --}}
+                    <div>
+                        <x-input-label for="name" :value="__('answer.name')" />
 
-        <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $answer->name }}" required autofocus />
+                        <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $answer->name }}" required autofocus />
 
-        <x-input-error :messages="$errors->get('text')" class="mt-2" />
-    </div>
-    <div>
-        <x-input-label for="name" :value="__('answer.risk')" />
+                        <x-input-error :messages="$errors->get('text')" class="mt-2" />
+                    </div>
+                    <div>
+                        <x-input-label for="name" :value="__('answer.reco')" />
 
-        <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $risk->name }}" required autofocus />
+                        <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $answer->recommendation }}" required autofocus />
 
-        <x-input-error :messages="$errors->get('text')" class="mt-2" />
-    </div>
-    <div>
-        <x-input-label for="name" :value="__('answer.type')" />
+                        <x-input-error :messages="$errors->get('text')" class="mt-2" />
+                    </div>
+                    <div>
+                        <x-input-label for="name" :value="__('answer.risk')" />
 
-        <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $answer->type_measure_id }}" required autofocus />
+                        <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $risk->name }}" required autofocus />
 
-        <x-input-error :messages="$errors->get('text')" class="mt-2" />
-    </div>
+                        <x-input-error :messages="$errors->get('text')" class="mt-2" />
+                    </div>
+                    
+                    <div>
+                        <x-input-label for="name" :value="__('answer.type')" />
 
-    {{-- Si hay más de un registro, muestra los campos de respuesta para el segundo registro --}}
-    @if ($answers->count() > 1)
-        <div>
-            <x-input-label for="name" :value="__('answer.name')" />
+                        <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $type->name }}" required autofocus />
 
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $answers[1]->name }}" required autofocus />
+                        <x-input-error :messages="$errors->get('text')" class="mt-2" />
+                    </div>
+                    
+                    <div>
+                        <x-input-label for="name" :value="__('answer.inter')" />
 
-            <x-input-error :messages="$errors->get('text')" class="mt-2" />
-        </div>
-        <div>
-            <x-input-label for="name" :value="__('answer.risk')" />
+                        <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $intervention->name }}" required autofocus />
 
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $risk1->name }}" required autofocus />
+                        <x-input-error :messages="$errors->get('text')" class="mt-2" />
+                    </div>
+                    <div>
+                        <x-input-label for="name" :value="__('answer.prob')" />
 
-            <x-input-error :messages="$errors->get('text')" class="mt-2" />
-        </div>
-        <div>
-            <x-input-label for="name" :value="__('answer.type')" />
+                        <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $probability->name }}" required autofocus />
 
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $answers[1]->type_measure_id }}" required autofocus />
+                        <x-input-error :messages="$errors->get('text')" class="mt-2" />
+                    </div>
+                    <div>
+                        <x-input-label for="name" :value="__('answer.imp')" />
 
-            <x-input-error :messages="$errors->get('text')" class="mt-2" />
-        </div>
-    @endif
-@endforeach
+                        <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $impact->name }}" required autofocus />
+
+                        <x-input-error :messages="$errors->get('text')" class="mt-2" />
+                    </div>
+                    
+
+
+                    {{-- Si hi ha més d'un registre, mostra els camps de respssta per al segon registres --}}
+                    @if ($answers->count() > 1)
+                        <div>
+                            <x-input-label for="name" :value="__('answer.name')" />
+
+                            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $answers[1]->name }}" required autofocus />
+
+                            <x-input-error :messages="$errors->get('text')" class="mt-2" />
+                        </div>
+                        <div>
+                        <x-input-label for="name" :value="__('answer.reco')" />
+
+                        <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $answers[1]->recommendation }}" required autofocus />
+
+                        <x-input-error :messages="$errors->get('text')" class="mt-2" />
+                        </div>
+                        <div>
+                            <x-input-label for="name" :value="__('answer.risk')" />
+
+                            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $risk1->name }}" required autofocus />
+
+                            <x-input-error :messages="$errors->get('text')" class="mt-2" />
+                        </div>
+                        <div>
+                            <x-input-label for="name" :value="__('answer.type')" />
+
+                            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $type1->name }}" required autofocus />
+
+                            <x-input-error :messages="$errors->get('text')" class="mt-2" />
+                        </div>
+                        
+                        <div>
+                            <x-input-label for="name" :value="__('answer.inter')" />
+
+                            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $intervention1->name }}" required autofocus />
+
+                            <x-input-error :messages="$errors->get('text')" class="mt-2" />
+                        </div>
+                        <div>
+                            <x-input-label for="name" :value="__('answer.imp')" />
+
+                            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $impact1->name }}" required autofocus />
+
+                            <x-input-error :messages="$errors->get('text')" class="mt-2" />
+                        </div>
+                    @endif
+                    @endforeach
                     
                     <div>
                         <x-primary-button>

@@ -107,21 +107,43 @@ class QuestionController extends Controller
         
     }
 
-        public function edit(Question $question)
-{
-    $answers = Answer::where('question_id', $question->id)->get();
-    $risks = Risk::all();
+    public function edit(Question $question)
+    {
+        $answers = Answer::where('question_id', $question->id)->get();
+        $risks = Risk::all();
+        $types  = TypeMeasure::all();
+        $interventions = Intervention::all();
+        $probabilities = Probability::all();
+        $impacts = Impact::all();
 
-    $risk = $risks->find($answers[0]->risk_id);
-  
-    $risk1 = null;
+        $risk = $risks->find($answers[0]->risk_id);
+        $type = $types->find($answers[0]->type_measure_id);
+        $intervention = $interventions->find($answers[0]->intervention_id);
+        $probability = $probabilities->find($answers[0]->probability_id);
+        $impact = $impacts->find($answers[0]->impact_id);
 
-    if ($answers->count() > 1) {
-        $risk1 = $risks->find($answers[1]->risk_id);
+
+
+    
+        $risk1 = null;
+        $type1 = null;
+        $intervention1 = null;
+        $probability1 = null;
+        $impact1 = null;
+
+        if ($answers->count() > 1) {
+            $risk1 = $risks->find($answers[1]->risk_id);
+            $type1 = $types->find($answers[1]->type_measure_id);
+            $intervention1 = $interventions->find($answers[1]->intervention_id);
+            $probability1 = $probabilities->find($answers[1]->probability_id);
+            $impact1 = $impacts->find($answers[1]->impact_id);
+
+
+
+        }
+
+        return view('question.edit', compact('question', 'answers', 'risk', 'risk1','type','type1','intervention','intervention1','probability','probability1','impact','impact1'));
     }
-
-    return view('question.edit', compact('question', 'answers', 'risk', 'risk1'));
-}
 
     public function update(Request $request, $id)
     {

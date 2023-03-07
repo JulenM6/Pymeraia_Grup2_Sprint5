@@ -1,10 +1,9 @@
 import { createApp, defineAsyncComponent } from "vue/dist/vue.esm-bundler";
-import { createI18n } from 'vue-i18n'
 import '@mdi/font/css/materialdesignicons.css'
-import messages from '@intlify/unplugin-vue-i18n/messages'
+import { i18nVue } from 'laravel-vue-i18n'
 
 
-const app = createApp({})
+const app = createApp()
 
 //registramos los componentes
 const navbar = defineAsyncComponent(() => import('./components/Navbar.vue'));
@@ -22,10 +21,12 @@ app.component('questionnaire-component', questionnaireFormComponent);
 const survey = defineAsyncComponent(() => import('./components/survey.vue'));
 app.component('survey', survey);
 
-const i18n = createI18n({
-    locale: 'es',
-    messages,
-  })
+
 
 // se monta la app
-app.use(i18n).mount('#app')
+app.use(i18nVue, {
+    resolve: async lang => {
+        const langs = import.meta.glob('../../lang/*.json');
+        return await langs[`../../lang/${lang}.json`]();
+    }
+}).mount('#app')

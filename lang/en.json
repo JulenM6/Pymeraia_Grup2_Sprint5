@@ -51,5 +51,8 @@
     "usernav.profile": "My profile",
     "usernav.settings": "Settings",
     "usernav.admin": "Administrator",
-    "usernav.close.session": "Sign off"
+    "usernav.close.session": "Sign off",
+    "usernav.language.es": "Spanish",
+    "usernav.language.en": "English",
+    "usernav.language.ca": "Catalan"
 }
