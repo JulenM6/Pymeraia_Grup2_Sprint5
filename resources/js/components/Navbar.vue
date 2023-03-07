@@ -28,7 +28,9 @@
                             class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                             <MenuItem v-for="item in userNavigation" :key="item.name" v-slot="{ active }">
                             <a :href="item.href"
-                                :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">{{
+                                :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">
+                                <component :is="item.icon" class="inline-block mr-1 h-5 w-5" aria-hidden="true" />
+                                {{
                                     item.name
                                 }}</a>
                             </MenuItem>
@@ -72,7 +74,7 @@
                     <DisclosureButton v-for="item in navigation" :key="item.name" as="a" :href="item.href"
                         :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-900 hover:bg-gray-700 hover:text-white', 'block px-3 py-2 rounded-md text-base font-medium']"
                         :aria-current="item.current ? 'page' : undefined">
-                        <component :is="item.icon" class="inline-block mr-2 h-6 w-6" aria-hidden="true" />{{ item.name }}
+                        <component :is="item.icon" class="inline-block mr-2 h-5 w-5" aria-hidden="true" />{{ item.name }}
                     </DisclosureButton>
                 </div>
                 <div class="border-t border-gray-700 pt-4 pb-3">
@@ -93,7 +95,7 @@
                     <div class="mt-3 space-y-1 px-2">
                         <DisclosureButton v-for="item in userNavigation" :key="item.name" as="a" :href="item.href"
                             class="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-700 hover:text-white">
-                            {{ item.name }}</DisclosureButton>
+                            <component :is="item.icon" class="inline-block mr-2 h-5 w-5" aria-hidden="true" />{{ item.name }}</DisclosureButton>
                     </div>
                 </div>
             </DisclosurePanel>
@@ -103,7 +105,7 @@
 
 <script setup>
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
-import { AcademicCapIcon, Bars3Icon, BellIcon, CalendarDaysIcon, HomeIcon, QuestionMarkCircleIcon, XMarkIcon } from '@heroicons/vue/24/outline'
+import { AcademicCapIcon, ArrowLeftOnRectangleIcon, Bars3Icon, BellIcon, CalendarDaysIcon, CogIcon, HomeIcon, IdentificationIcon, LanguageIcon, QuestionMarkCircleIcon, WrenchScrewdriverIcon, XMarkIcon } from '@heroicons/vue/24/outline'
 import VueAvatar from "@webzlodimir/vue-avatar";
 import "@webzlodimir/vue-avatar/dist/style.css";
 </script>
@@ -124,10 +126,13 @@ export default {
                 { name: this.$t('navbar.reports'), href: '/report', current: false, icon: CalendarDaysIcon },
             ],
             userNavigation: [
-                { name: this.$t('usernav.profile'), href: '#' },
-                { name: this.$t('usernav.settings'), href: '#' },
-                { name: this.$t('usernav.admin'), href: '#' },
-                { name: this.$t('usernav.close.session'), href: '#' },
+                { name: this.$t('usernav.profile'), href: '#', icon: IdentificationIcon },
+                { name: this.$t('usernav.settings'), href: '#', icon: CogIcon },
+                { name: this.$t('usernav.admin'), href: '#', icon: WrenchScrewdriverIcon  },
+                { name: this.$t('usernav.close.session'), href: '#', icon: ArrowLeftOnRectangleIcon },
+                { name: this.$t('usernav.language.es'), href: '/language/es', icon: LanguageIcon },
+                { name: this.$t('usernav.language.en'), href: '/language/en',  icon: LanguageIcon },
+                { name: this.$t('usernav.language.ca'), href: '/language/ca' , icon: LanguageIcon },
             ],
         };
     }

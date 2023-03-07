@@ -40,6 +40,8 @@ Route::get('/', function () {
 
 /* Grup de rutes per a CRUD Informe */
 Route::resource('report',ReportController::class);
+Route::get('/report/{id}/pdf', [ReportController::class, 'pdf'])->name('report.pdf');
+
 
 /* Grup de rutes per a CRUD Respostes */
 Route::resource('answer',AnswerControler::class);
@@ -65,4 +67,10 @@ Route::post('questionnaire/{questionnaire}/unassignQuestion', [QuestionnaireCont
 
 //Audits ROUTES
 Route::get('/audit/{id}', [AuditController::class, 'show'])->name('audit.survey');
+
+Route::get('language/{locale}', function ($locale) {
+    app()->setLocale($locale);
+    session()->put('locale', $locale);
+    return redirect()->back();
+});
 
