@@ -214,5 +214,5 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
     'Debugbar' => Barryvdh\Debugbar\Facade::class,
-
+    'PDF' => Barryvdh\DomPDF\Facade::class,
 ];

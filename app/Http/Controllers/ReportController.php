@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Report;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use PDF;
 
 class ReportController extends Controller
 {
@@ -36,8 +37,8 @@ class ReportController extends Controller
     }
 
     public function pdf($id){
+
         $report = DB::table('reports')
-            // Resto del código
             ->select('answers.id', 'answers.name as answers', 'answers.recommendation as recommendation', 'questions.name as questions', 'type_measures.name as type_measures', 'risks.name as risks', 'probabilities.name as probabilities', 'interventions.name as interventions', 'impacts.name as impacts')
             ->join('answer_report', 'answer_report.report_id', '=', 'reports.id')
             ->join('answers', 'answer_report.answer_id', '=', 'answers.id')
