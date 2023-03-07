@@ -79,12 +79,7 @@
         $idreport = substr($idreport, 8);
         ?>
 
-        {{-- {{$idreport = \Request::getPathInfo()}}
-        {{$idreport}}
-        {{$idreport = substr($idreport, 8)}} --}}
-
         <a href="{{ route('report.pdf', [$idreport]) }}" class="botonPersonalizado">{{ __('table.share') }}</a>
-        {{-- href="{{route('report.{{id}}.pdf')}}" --}}
-        {{-- onclick="window.location.href='{{ route('report', ['id' => $id]) }}/pdf'" --}}
+
     </div>
 @endsection
