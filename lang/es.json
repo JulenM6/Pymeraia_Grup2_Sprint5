@@ -56,5 +56,15 @@
     "usernav.language.en": "Inglés",
     "usernav.language.ca": "Catalán",
     "answer.name": "Respuesta",
-    "answer.reco": "Recomendacion"
+    "answer.reco": "Recomendacion",
+    "answer.risk": "Riesgo",
+    "answer.type": "Tipo de medida",
+    "answer.inter": "Intervención",
+    "answer.prob": "Probabilidad",
+    "answer.imp": "Impacto"
+
+
+
+
+
 }
