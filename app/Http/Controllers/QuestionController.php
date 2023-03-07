@@ -142,7 +142,7 @@ class QuestionController extends Controller
 
         }
 
-        return view('question.edit', compact('question', 'answers', 'risk', 'risk1','type','type1','intervention','intervention1','probability','probability1','impact','impact1'));
+        return view('question.edit', compact('question', 'answers','risks', 'risk', 'risk1','type','type1','intervention','intervention1','probability','probability1','impact','impact1'));
     }
 
     public function update(Request $request, $id)
@@ -151,7 +151,12 @@ class QuestionController extends Controller
         $question->name = $request->name;
         $question->description = $request->description;
         $question->update();
+dd($request);
         $answer = Answer::find($id);
+        $answer->name = $request->answer_name_true;
+        $answer->recommendation = $request->reco_true;
+        $answer->risk_id = $ $request->risk_true;
+
 
         return redirect()->route('question.index');
     }

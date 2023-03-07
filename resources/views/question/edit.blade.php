@@ -9,29 +9,29 @@
 
             @method('put')
 
-            
-                <div class="content-center">
+
+            <div class="content-center">
+                <div>
                     <div>
-                        <div>
-                            <x-input-label for="name" :value="__('question.name')" />
+                        <x-input-label for="name" :value="__('question.name')" />
 
-                            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{$question->name}}" required autofocus />
+                        <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{$question->name}}" required autofocus />
 
-                            <x-input-error :messages="$errors->get('text')" class="mt-2" />
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <x-input-label for="description" :value="__('question.description')" />
-
-                            <x-text-input id="description" class="block mt-1 w-full" type="text" name="description" value="{{$question->description}}" required autofocus />
-
-                            <x-input-error :messages="$errors->get('text')" class="mt-2" />
-                        </div>
+                        <x-input-error :messages="$errors->get('text')" class="mt-2" />
                     </div>
                 </div>
-                <br><br><br>
-                <div class="grid gap-6 mb-3 md:grid-cols-2 ">
+                <div>
+                    <div>
+                        <x-input-label for="description" :value="__('question.description')" />
+
+                        <x-text-input id="description" class="block mt-1 w-full" type="text" name="description" value="{{$question->description}}" required autofocus />
+
+                        <x-input-error :messages="$errors->get('text')" class="mt-2" />
+                    </div>
+                </div>
+            </div>
+            <br><br><br>
+            <div class="grid gap-6 mb-3 md:grid-cols-2 ">
                 <div class="grid gap-6 mb-3 md:grid-cols-1">
                     @foreach ($answers as $answer)
                     @if (!$loop->first) {{-- Verifica si no es la primera iteració --}}
@@ -56,8 +56,14 @@
                     <div>
                         <x-input-label for="risk_true" :value="__('answer.risk')" />
 
-                        <x-text-input id="risk_true" class="block mt-1 w-full" type="text" name="risk_true" value="{{ $risk->name }}" required autofocus />
-
+                        <select name="myselect">
+                            @foreach ($risks as $risk_opcions)
+                            <option value="{{ $risk_opcions->id }}" @if ($risk_opcions->name == old('myselect', $risk->name))
+                                selected="selected"
+                                @endif
+                                >{{ $risk_opcions->name }}</option>
+                            @endforeach
+                        </select>
                         <x-input-error :messages="$errors->get('text')" class="mt-2" />
                     </div>
 
@@ -68,7 +74,6 @@
 
                         <x-input-error :messages="$errors->get('text')" class="mt-2" />
                     </div>
-
                     <div>
                         <x-input-label for="inter_true" :value="__('answer.inter')" />
 
@@ -112,7 +117,14 @@
                     <div>
                         <x-input-label for="risk_false" :value="__('answer.risk')" />
 
-                        <x-text-input id="risk_false" class="block mt-1 w-full" type="text" name="risk_false" value="{{ $risk1->name }}" required autofocus />
+                        <select name="myselect">
+                            @foreach ($risks as $risk_opcions)
+                            <option value="{{ $risk_opcions->id }}" @if ($risk_opcions->name == old('myselect', $risk1->name))
+                                selected="selected"
+                                @endif
+                                >{{ $risk_opcions->name }}</option>
+                            @endforeach
+                        </select>
 
                         <x-input-error :messages="$errors->get('text')" class="mt-2" />
                     </div>
@@ -128,6 +140,13 @@
                         <x-input-label for="inter_false" :value="__('answer.inter')" />
 
                         <x-text-input id="inter_false" class="block mt-1 w-full" type="text" name="inter_false" value="{{ $intervention1->name }}" required autofocus />
+
+                        <x-input-error :messages="$errors->get('text')" class="mt-2" />
+                    </div>
+                    <div>
+                        <x-input-label for="prob_false" :value="__('answer.prob')" />
+
+                        <x-text-input id="prob_false" class="block mt-1 w-full" type="text" name="prob_false" value="{{ $probability1->name }}" required autofocus />
 
                         <x-input-error :messages="$errors->get('text')" class="mt-2" />
                     </div>
