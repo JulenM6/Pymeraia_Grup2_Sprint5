@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Question;
 use App\Models\Questionnaire;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -16,8 +15,6 @@ class QuestionnaireSeeder extends Seeder
      */
     public function run()
     {
-        Questionnaire::factory(12)
-            ->has(Question::factory()->count(10))
-            ->create();
+        Questionnaire::factory(12)->create();
     }
 }
