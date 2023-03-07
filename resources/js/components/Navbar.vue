@@ -128,6 +128,9 @@ export default {
                 { name: this.$t('usernav.settings'), href: '#' },
                 { name: this.$t('usernav.admin'), href: '#' },
                 { name: this.$t('usernav.close.session'), href: '#' },
+                { name: this.$t('usernav.language.es'), href: '/language/es' },
+                { name: this.$t('usernav.language.en'), href: '/language/en' },
+                { name: this.$t('usernav.language.ca'), href: '/language/ca' },
             ],
         };
     }

@@ -51,5 +51,8 @@
     "usernav.profile": "El meu perfil",
     "usernav.settings": "Ajustaments",
     "usernav.admin": "Administrar",
-    "usernav.close.session": "Tancar sessió"
+    "usernav.close.session": "Tancar sessió",
+    "usernav.language.es": "Castellà",
+    "usernav.language.en": "Anglès",
+    "usernav.language.ca": "Català"
 }
