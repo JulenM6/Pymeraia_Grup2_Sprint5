@@ -105,7 +105,7 @@
 
 <script setup>
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
-import { AcademicCapIcon, ArrowLeftOnRectangleIcon, Bars3Icon, BellIcon, CalendarDaysIcon, CogIcon, HomeIcon, IdentificationIcon, LanguageIcon, QuestionMarkCircleIcon, WrenchScrewdriverIcon, XMarkIcon } from '@heroicons/vue/24/outline'
+import { AcademicCapIcon, ArrowLeftOnRectangleIcon, Bars3Icon, BellIcon, CalendarDaysIcon, ClipboardDocumentCheckIcon, CogIcon, HomeIcon, IdentificationIcon, LanguageIcon, QuestionMarkCircleIcon, WrenchScrewdriverIcon, XMarkIcon } from '@heroicons/vue/24/outline'
 import VueAvatar from "@webzlodimir/vue-avatar";
 import "@webzlodimir/vue-avatar/dist/style.css";
 </script>
@@ -124,6 +124,7 @@ export default {
                 { name: this.$t('navbar.questions'), href: '/question', current: false, icon: AcademicCapIcon },
                 { name: this.$t('navbar.answers'), href: '/answer', current: false, icon: Bars3Icon },
                 { name: this.$t('navbar.reports'), href: '/report', current: false, icon: CalendarDaysIcon },
+                { name: this.$t('navbar.audits'), href: '/audit', current: false, icon: ClipboardDocumentCheckIcon },
             ],
             userNavigation: [
                 { name: this.$t('usernav.profile'), href: '#', icon: IdentificationIcon },

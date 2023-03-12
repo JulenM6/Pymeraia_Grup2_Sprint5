@@ -66,8 +66,11 @@ Route::post('questionnaire/{questionnaire}/assignQuestion', [QuestionnaireContro
 Route::post('questionnaire/{questionnaire}/unassignQuestion', [QuestionnaireController::class, 'unassignQuestion'])->name('questionnaire.unassignQuestion');
 
 //Audits ROUTES
+Route::get('/audit', [AuditController::class, 'index'])->name('audit.index');
 Route::get('/audit/{id}', [AuditController::class, 'show'])->name('audit.survey');
 
+
+// Languague ROUTES
 Route::get('language/{locale}', function ($locale) {
     app()->setLocale($locale);
     session()->put('locale', $locale);
