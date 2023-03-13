@@ -29,10 +29,7 @@ class AuditController extends Controller
 
         $questionnaire= Questionnaire::find($survey->questionnaire_id);
         $questions = $questionnaire->questions()->with('answers')->get();
-        $results = $survey->answers()->get();
 
-        $count = $results->count();
-
-        return view('audit.show', compact('survey', 'questions', 'results', 'count'));
+        return view('audit.show', compact('survey', 'questions'));
     }
 }
