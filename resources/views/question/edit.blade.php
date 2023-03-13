@@ -70,7 +70,14 @@
                     <div>
                         <x-input-label for="type_true" :value="__('answer.type')" />
 
-                        <x-text-input id="type_true" class="block mt-1 w-full" type="text" name="type_true" value="{{ $type->name }}" required autofocus />
+                        <select name="myselect">
+                            @foreach ($types as $type_opcions)
+                            <option value="{{ $type_opcions->id }}" @if ($type_opcions->name == old('myselect', $type->name))
+                                selected="selected"
+                                @endif
+                                >{{ $type_opcions->name }}</option>
+                            @endforeach
+                        </select>
 
                         <x-input-error :messages="$errors->get('text')" class="mt-2" />
                     </div>
@@ -131,7 +138,14 @@
                     <div>
                         <x-input-label for="type_false" :value="__('answer.type')" />
 
-                        <x-text-input id="type_false" class="block mt-1 w-full" type="text" name="type_false" value="{{ $type1->name }}" required autofocus />
+                        <select name="myselect">
+                            @foreach ($types as $type_opcions)
+                            <option value="{{ $type_opcions->id }}" @if ($type_opcions->name == old('myselect', $type1->name))
+                                selected="selected"
+                                @endif
+                                >{{ $type_opcions->name }}</option>
+                            @endforeach
+                        </select>
 
                         <x-input-error :messages="$errors->get('text')" class="mt-2" />
                     </div>
