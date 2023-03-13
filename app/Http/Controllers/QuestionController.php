@@ -142,7 +142,7 @@ class QuestionController extends Controller
 
         }
 
-        return view('question.edit', compact('question', 'answers','risks', 'risk', 'risk1','type','type1','intervention','intervention1','probability','probability1','impact','impact1'));
+        return view('question.edit', compact('question', 'answers','risks', 'risk', 'risk1','types','type','type1','intervention','intervention1','probability','probability1','impact','impact1'));
     }
 
     public function update(Request $request, $id)
