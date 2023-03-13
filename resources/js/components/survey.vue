@@ -27,11 +27,12 @@
                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                             <div v-for="(answer, index) in question.answers" :key="answer.id"
                                 class="flex items-center mb-4">
-                                <input :id="'respuesta-' + index" type="radio"
+                                <input :id="'respuesta-' + index" type="radio" :name="'answer-group-' + question.id"
                                     :value="answer.id"
                                     class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-orange-300 dark:focus:ring-orange-600 dark:focus:bg-orange-600 dark:bg-gray-700 dark:border-gray-600"
-                                    @change="selectAnswer(answer.id)" :checked="answers.includes(answer.id)">
-                                <label :for="answer.id"
+                                    @change="selectAnswer(answer.id)"
+                                    :checked="answers.find(a => a.currentPage === currentPage && a.answerId === answer.id) !== undefined">
+                                <label :for="'respuesta-' + index"
                                     class="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                     {{ answer.name }}
                                 </label>
@@ -87,8 +88,9 @@ const props = defineProps({
 const currentPage = ref(1)
 const perPage = ref(1)
 const pageCount = computed(() => Math.ceil(props.questions.length / perPage.value))
-// guardo las respuestas
-const answers = ref(JSON.parse(localStorage.getItem('answers')) || []);
+
+// guardo las respuestas con localStorage para sobrevivir a efecincos
+const answers = ref(JSON.parse(localStorage.getItem('answers' + props.survey.id)) || []);
 console.log(answers.value)
 function selectAnswer(answerId) {
     const index = answers.value.findIndex(answer => answer.currentPage === currentPage.value)
@@ -101,7 +103,7 @@ function selectAnswer(answerId) {
         console.log(answers.value)
     }
 
-    localStorage.setItem('answers', JSON.stringify(answers.value))
+    localStorage.setItem('answers' + props.survey.id, JSON.stringify(answers.value))
 }
 
 // calcular paginación
