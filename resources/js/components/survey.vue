@@ -66,6 +66,9 @@
                                     class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
                                     :class="{ 'opacity-50 cursor-not-allowed': currentPage === pageCount }"
                                     :disabled="currentPage === pageCount" @click="currentPage++">Next</button>
+                                    <button v-if="surveySend" @click="submitAnswers"
+                                    class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
+                                    >Enviar</button>
                             </nav>
                         </div>
                     </div>
@@ -91,7 +94,7 @@ const pageCount = computed(() => Math.ceil(props.questions.length / perPage.valu
 
 // guardo las respuestas con localStorage para sobrevivir a efecincos
 const answers = ref(JSON.parse(localStorage.getItem('answers' + props.survey.id)) || []);
-console.log(answers.value)
+console.log(answers.value.length)
 function selectAnswer(answerId) {
     const index = answers.value.findIndex(answer => answer.currentPage === currentPage.value)
 
@@ -124,12 +127,17 @@ const percentageAnswered = computed(() => {
     return Math.round((answers.value.length / props.questions.length) * 100);
 });
 
+// retorna si todo está contestado
+const surveySend = computed(() => {
+    return answers.value.length === props.questions.length;
+});
+
 // enviar la respuesta o actualizar
-async function submitAnswer(answerId) {
+async function submitAnswers() {
     try {
-        const response = await axios.post('/audit', {
-            reportId: reportId,
-            answerId: answerId
+        const response = await axios.post('/audit/save', {
+            surveyId: props.survey.id,
+            answers: answers.value
         });
 
         const data = response.data;
