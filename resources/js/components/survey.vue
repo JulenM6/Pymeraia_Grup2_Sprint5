@@ -27,10 +27,12 @@
                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                             <div v-for="(answer, index) in question.answers" :key="answer.id"
                                 class="flex items-center mb-4">
-                                <input :id="'respuesta-' + index" type="radio" :name="'respuesta-' + question.id"
+                                <input :id="'respuesta-' + index" type="radio" :name="'answer-group-' + question.id"
                                     :value="answer.id"
-                                    class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-orange-300 dark:focus:ring-orange-600 dark:focus:bg-orange-600 dark:bg-gray-700 dark:border-gray-600">
-                                <label :for="answer.id"
+                                    class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-orange-300 dark:focus:ring-orange-600 dark:focus:bg-orange-600 dark:bg-gray-700 dark:border-gray-600"
+                                    @change="selectAnswer(answer.id)"
+                                    :checked="answers.find(a => a.currentPage === currentPage && a.answerId === answer.id) !== undefined">
+                                <label :for="'respuesta-' + index"
                                     class="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                     {{ answer.name }}
                                 </label>
@@ -64,6 +66,8 @@
                                     class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
                                     :class="{ 'opacity-50 cursor-not-allowed': currentPage === pageCount }"
                                     :disabled="currentPage === pageCount" @click="currentPage++">Next</button>
+                                <button v-if="surveySend" @click="submitAnswers"
+                                    class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">Enviar</button>
                             </nav>
                         </div>
                     </div>
@@ -74,20 +78,34 @@
 </template>
 
 <script setup>
-import { defineProps, ref, computed, watch } from 'vue'
+import { ref, computed, watch } from 'vue'
 import axios from 'axios'
 // propiedades para pasarle datos desde controlador laravel
 const props = defineProps({
     survey: Object,
     questions: Object,
-    results: Object,
-    count: Number,
 })
 
 // variables para paginación
 const currentPage = ref(1)
 const perPage = ref(1)
 const pageCount = computed(() => Math.ceil(props.questions.length / perPage.value))
+
+// guardo las respuestas con localStorage para sobrevivir a efecincos
+const answers = ref(JSON.parse(localStorage.getItem('answers' + props.survey.id)) || []);
+
+// guardar las respuestas seleccionadas en el array o actualizar
+function selectAnswer(answerId) {
+    const index = answers.value.findIndex(answer => answer.currentPage === currentPage.value)
+
+    if (index !== -1) {
+        answers.value[index].answerId = answerId
+    } else {
+        answers.value.push({ currentPage: currentPage.value, answerId })
+    }
+
+    localStorage.setItem('answers' + props.survey.id, JSON.stringify(answers.value))
+}
 
 // calcular paginación
 const paginatedQuestions = computed(() => {
@@ -104,16 +122,23 @@ watch(currentPage, () => {
 
 // calcular el porcentage de respuestas contestadas
 const percentageAnswered = computed(() => {
-    return Math.round(props.count / props.questions.length * 100);
+    return Math.round((answers.value.length / props.questions.length) * 100);
 });
 
-// enviar la respuesta o actualizar
-async function submitAnswer(reportId, answerId) {
+// boolean si el formulario está completo
+const surveySend = computed(() => {
+    return answers.value.length === props.questions.length;
+});
+
+// enviar las respuestas
+async function submitAnswers() {
     try {
-        const response = await axios.post('/audit', {
-            reportId: reportId,
-            answerId: answerId
+        const answerIds = answers.value.map(answer => answer.answerId);
+        const response = await axios.put(`/audit/save/${props.survey.id}`, {
+            answerIds: answerIds
         });
+        //limpio las respuestas
+        localStorage.removeItem(`answers${props.survey.id}`)
 
         const data = response.data;
 
