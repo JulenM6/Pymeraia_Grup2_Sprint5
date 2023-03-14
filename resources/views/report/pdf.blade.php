@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+        integrity="sha512-fEbbx62zKbG2tvw3qPb3Itb0Nl1hdjKbW8qzv9Mwea7pzF1HzsDd7VvKebt97J7tG/DiQKzI8vGdQVDz7fJrLg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Informe </title>
 </head>
+
 <body>
-    {{-- <p class="text-center"><img src="{{asset('img/logo_pymeshield.jpg')}}"></p> --}}
-    <h1 class="tit-pdf-report"></h1>
-    <div class=" overflow-x-auto shadow-md sm:rounded-lg m-5">
+    <img src="{{ public_path('img/logoPymeShield.png') }}">
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -41,5 +45,23 @@
             </tbody>
         </table>
     </div>
+
+    <footer class="bg-gray-900 py-8">
+        <div>
+          <div class="text-white">
+              {{-- <img src="{{ public_path('img/logo_pymeshield_black.png') }}" alt="Logo" class="w-16"> --}}
+          </div>
+          <div class="text-white">
+            <h6 class="font-bold text-lg">{{ __('footer.contact') }}</h6>
+            <ul class="mt-4">
+              <li><a href="tel:682849274" class="text-lg">682849274</a></li>
+              <li><a href="mailto:support@pymeshield.com" class="text-lg">info@pymeshield.com</a></li>
+              <p class="mt-4 text-lg">{{ __('footer.by') }}</p>
+            </ul>
+          </div>
+        </div>
+      </footer>
+
 </body>
+
 </html>
