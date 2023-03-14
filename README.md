@@ -93,11 +93,16 @@ DB_HOST=mysql
 
 <p align="left">
 UBUNTU
-docker-compose down -v (borrar la carpeta /volumes)
-docker-compose up -d (arrancar docker)
-php artisan config:cache (borra cache)
-php artisan migrate:fresh --seed (fer la migració)
-npm install (tornar a instalar npm)
+docker-compose down -v (borrar la carpeta /volumes)<br>
+
+docker-compose up -d (arrancar docker)<br>
+
+php artisan config:cache (borra cache)<br>
+
+php artisan migrate:fresh --seed (fer la migració)<br>
+
+npm install (tornar a instalar npm)<br>
+
 composer install (tornar a instalar composer)
 <br>
 DB_HOST=127.0.0.1
