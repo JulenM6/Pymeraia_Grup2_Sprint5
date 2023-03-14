@@ -66,9 +66,8 @@
                                     class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
                                     :class="{ 'opacity-50 cursor-not-allowed': currentPage === pageCount }"
                                     :disabled="currentPage === pageCount" @click="currentPage++">Next</button>
-                                    <button v-if="surveySend" @click="submitAnswers"
-                                    class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
-                                    >Enviar</button>
+                                <button v-if="surveySend" @click="submitAnswers"
+                                    class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">Enviar</button>
                             </nav>
                         </div>
                     </div>
@@ -135,9 +134,9 @@ const surveySend = computed(() => {
 // enviar la respuesta o actualizar
 async function submitAnswers() {
     try {
-        const response = await axios.post('/audit/save', {
-            surveyId: props.survey.id,
-            answers: answers.value
+        const answerIds = answers.value.map(answer => answer.answerId);
+        const response = await axios.put(`/audit/save/${props.survey.id}`, {
+            answerIds: answerIds
         });
 
         const data = response.data;

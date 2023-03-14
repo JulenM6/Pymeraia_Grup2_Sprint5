@@ -33,9 +33,11 @@ class AuditController extends Controller
         return view('audit.show', compact('survey', 'questions'));
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $survey = Report::find($request->input('surveyId'));
+        $survey = Report::find($id);
+        $answers = $request->input('answerIds');
+        $survey->answers()->sync($answers);
         // por acabar $survey->post()
     }
 }

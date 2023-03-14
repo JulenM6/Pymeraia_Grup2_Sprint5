@@ -21,7 +21,6 @@ class AnswerReportFactory extends Factory
         $answer_id = Answer::all()->pluck('id')->toArray();
         $report_id = Report::all()->pluck('id')->toArray();
         return [
-            'hidden' => $this->faker->date(),
             'answer_id' => $this->faker->randomElement($answer_id),
             'report_id' => $this->faker->randomElement($report_id)
         ];

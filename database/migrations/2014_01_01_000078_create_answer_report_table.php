@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('answer_report', function (Blueprint $table) {
             $table->id();
-            $table->date('hidden');
             $table->foreignId('answer_id')->references('id')->on('answers');
             $table->foreignId('report_id')->references('id')->on('reports');
             $table->timestamps();

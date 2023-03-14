@@ -68,7 +68,7 @@ Route::post('questionnaire/{questionnaire}/unassignQuestion', [QuestionnaireCont
 //Audits ROUTES
 Route::get('/audit', [AuditController::class, 'index'])->name('audit.index');
 Route::get('/audit/{id}', [AuditController::class, 'show'])->name('audit.survey');
-Route::post('/audit/save', [AuditController::class, 'update'])->name('audit.update');
+Route::put('/audit/save/{id}', [AuditController::class, 'update'])->name('audit.update');
 
 // Languague ROUTES
 Route::get('language/{locale}', function ($locale) {
