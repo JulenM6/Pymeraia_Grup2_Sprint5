@@ -7,6 +7,7 @@
     <title>Informe </title>
 </head>
 <body>
+    {{-- <p class="text-center"><img src="{{asset('img/logo_pymeshield.jpg')}}"></p> --}}
     <h1 class="tit-pdf-report"></h1>
     <div class=" overflow-x-auto shadow-md sm:rounded-lg m-5">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">

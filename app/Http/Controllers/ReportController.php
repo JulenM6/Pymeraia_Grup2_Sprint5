@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Report;
+use Dompdf\Dompdf;
 use Illuminate\Support\Facades\DB;
 use PDF;
 
@@ -50,6 +51,7 @@ class ReportController extends Controller
             ->join('type_measures', 'type_measures.id', '=', 'answers.type_measure_id')
             ->where('reports.id', '=', $id)
             ->get();
+
 
         $pdf = PDF::loadView('report.pdf', compact('report'))->setPaper('legal', 'landscape');
         return $pdf->stream();

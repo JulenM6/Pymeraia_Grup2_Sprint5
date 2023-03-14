@@ -1,6 +1,9 @@
 import { createApp, defineAsyncComponent } from "vue/dist/vue.esm-bundler";
 import '@mdi/font/css/materialdesignicons.css'
 import { i18nVue } from 'laravel-vue-i18n'
+import AxiosPlugin from '../js/plugin-axios/plugins/axios-plugin';
+
+
 
 
 const app = createApp()
@@ -21,7 +24,7 @@ app.component('questionnaire-component', questionnaireFormComponent);
 const survey = defineAsyncComponent(() => import('./components/survey.vue'));
 app.component('survey', survey);
 
-
+app.use(AxiosPlugin);
 
 // se monta la app
 app.use(i18nVue, {
