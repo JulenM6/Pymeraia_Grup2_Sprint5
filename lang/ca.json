@@ -62,7 +62,15 @@
     "answer.type": "Tipus de mesura",
     "answer.inter": "Intervenció",
     "answer.prob": "Probabilitat",
-    "answer.imp": "Impacte"
+    "answer.imp": "Impacte",
+    "survey.name": "Nom auditoria:",
+    "survey.question": "Pregunta",
+    "survey.answer": "Resposta",
+    "survey.percent": "Percentatge",
+    "survey.map": "Mapa de l'auditoria",
+    "survey.send": "Enviar",
+    "pagination.previous": "Anterior",
+    "pagination.next": "Següent"
 
 
 

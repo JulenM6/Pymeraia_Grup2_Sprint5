@@ -62,7 +62,15 @@
     "answer.type": "Tipo de medida",
     "answer.inter": "Intervención",
     "answer.prob": "Probabilidad",
-    "answer.imp": "Impacto"
+    "answer.imp": "Impacto",
+    "survey.name": "Nombre auditoría:",
+    "survey.question": "Pregunta",
+    "survey.answer": "Respuesta",
+    "survey.percent": "Porcentaje",
+    "survey.map": "Mapa de la auditoría",
+    "survey.send": "Enviar",
+    "pagination.previous": "Anterior",
+    "pagination.next": "Siguiente"
 
 
 
