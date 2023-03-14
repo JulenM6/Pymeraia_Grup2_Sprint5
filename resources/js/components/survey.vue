@@ -93,16 +93,15 @@ const pageCount = computed(() => Math.ceil(props.questions.length / perPage.valu
 
 // guardo las respuestas con localStorage para sobrevivir a efecincos
 const answers = ref(JSON.parse(localStorage.getItem('answers' + props.survey.id)) || []);
-console.log(answers.value.length)
+
+// guardar las respuestas seleccionadas en el array o actualizar
 function selectAnswer(answerId) {
     const index = answers.value.findIndex(answer => answer.currentPage === currentPage.value)
 
     if (index !== -1) {
         answers.value[index].answerId = answerId
-        console.log(answers.value)
     } else {
         answers.value.push({ currentPage: currentPage.value, answerId })
-        console.log(answers.value)
     }
 
     localStorage.setItem('answers' + props.survey.id, JSON.stringify(answers.value))
@@ -126,18 +125,20 @@ const percentageAnswered = computed(() => {
     return Math.round((answers.value.length / props.questions.length) * 100);
 });
 
-// retorna si todo está contestado
+// boolean si el formulario está completo
 const surveySend = computed(() => {
     return answers.value.length === props.questions.length;
 });
 
-// enviar la respuesta o actualizar
+// enviar las respuestas
 async function submitAnswers() {
     try {
         const answerIds = answers.value.map(answer => answer.answerId);
         const response = await axios.put(`/audit/save/${props.survey.id}`, {
             answerIds: answerIds
         });
+        //limpio las respuestas
+        localStorage.removeItem(`answers${props.survey.id}`)
 
         const data = response.data;
 
