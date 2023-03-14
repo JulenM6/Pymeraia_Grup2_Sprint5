@@ -313,7 +313,8 @@
         methods: {
             saveTask() {
                 this.sending = true;
-                axios.post('/question', {name: this.pregunta, description: this.description, recommendation_true: this.recommendation_true, risk_true: this.risk_true, intervention_true: this.intervention_true, measure_true: this.measure_true, probability_true: this.probability_true, impact_true: this.impact_true, recommendation_false: this.recommendation_false, risk_false: this.risk_false, intervention_false: this.intervention_false, measure_false: this.measure_false, probability_false: this.probability_false, impact_false: this.impact_false })
+                //plugin axios
+                this.$axios.post('question', {name: this.pregunta, description: this.description, recommendation_true: this.recommendation_true, risk_true: this.risk_true, intervention_true: this.intervention_true, measure_true: this.measure_true, probability_true: this.probability_true, impact_true: this.impact_true, recommendation_false: this.recommendation_false, risk_false: this.risk_false, intervention_false: this.intervention_false, measure_false: this.measure_false, probability_false: this.probability_false, impact_false: this.impact_false })
                 .then(response => {
                     window.location.href = '/question';
                 })
