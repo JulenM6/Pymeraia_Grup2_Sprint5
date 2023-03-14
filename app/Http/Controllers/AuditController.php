@@ -40,5 +40,8 @@ class AuditController extends Controller
         /* sync elimina antiguos valores y les mete los del array
            pasado por axios a la pivot table 'answer_report */
         $survey->answers()->sync($answers);
+        // cambiando el estado a done y guardando
+        $survey->status = 'done';
+        $survey->save();
     }
 }
