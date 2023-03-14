@@ -72,10 +72,11 @@
                     </div>
                 </div>
             </div>
-            <div class="px-4 py-5 sm:px-6 text-base font-semibold leading-6 text-gray-900">{{ $t('survey.map') }}</div>
+            <!-- mapa navegación -->
+            <div class="px-4 py-5 text-base font-semibold leading-6 text-gray-900">{{ $t('survey.map') }}</div>
             <div class="flex flex-wrap gap-4 py-4 px-4">
                 <a v-for="guide in questions.length" :key="guide"
-                    class="cursor-pointer w-12 h-12 overflow-hidden bg-white shadow sm:rounded-lg flex justify-center items-center"
+                    class="cursor-pointer w-12 h-12 overflow-hidden bg-white shadow rounded-lg flex justify-center items-center"
                     :class="{ 'cursor-not-allowed font-extrabold': currentPage === guide, 'bg-green-300': isReplied(guide) }"
                     @click="goToPage(guide)">{{ guide }}
                 </a>
