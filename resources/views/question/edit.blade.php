@@ -56,9 +56,9 @@
                     <div>
                         <x-input-label for="risk_true" :value="__('answer.risk')" />
 
-                        <select name="myselect">
+                        <select name="risk_true" id="risk_true">
                             @foreach ($risks as $risk_opcions)
-                            <option value="{{ $risk_opcions->id }}" @if ($risk_opcions->name == old('myselect', $risk->name))
+                            <option value="{{ $risk_opcions->id }}" @if ($risk_opcions->name == $risk->name)
                                 selected="selected"
                                 @endif
                                 >{{ $risk_opcions->name }}</option>
@@ -70,9 +70,9 @@
                     <div>
                         <x-input-label for="type_true" :value="__('answer.type')" />
 
-                        <select name="myselect">
+                        <select name="type_true">
                             @foreach ($types as $type_opcions)
-                            <option value="{{ $type_opcions->id }}" @if ($type_opcions->name == old('myselect', $type->name))
+                            <option value="{{ $type_opcions->id }}" @if ($type_opcions->name == old('type_true', $type->name))
                                 selected="selected"
                                 @endif
                                 >{{ $type_opcions->name }}</option>
@@ -84,22 +84,40 @@
                     <div>
                         <x-input-label for="inter_true" :value="__('answer.inter')" />
 
-                        <x-text-input id="inter_true" class="block mt-1 w-full" type="text" name="inter_true" value="{{ $intervention->name }}" required autofocus />
-
+                        <select name="inter_true">
+                            @foreach ($interventions as $inter_opcions)
+                            <option value="{{ $inter_opcions->id }}" @if ($inter_opcions->name == old('inter_true', $intervention->name))
+                                selected="selected"
+                                @endif
+                                >{{ $inter_opcions->name }}</option>
+                            @endforeach
+                        </select>
                         <x-input-error :messages="$errors->get('text')" class="mt-2" />
                     </div>
                     <div>
                         <x-input-label for="prob_true" :value="__('answer.prob')" />
 
-                        <x-text-input id="prob_true" class="block mt-1 w-full" type="text" name="prob_true" value="{{ $probability->name }}" required autofocus />
-
+                        <select name="prob_true">
+                            @foreach ($probabilities as $prob_opcions)
+                            <option value="{{ $prob_opcions->id }}" @if ($prob_opcions->name == old('prob_true', $probability->name))
+                                selected="selected"
+                                @endif
+                                >{{ $prob_opcions->name }}</option>
+                            @endforeach
+                        </select>
                         <x-input-error :messages="$errors->get('text')" class="mt-2" />
                     </div>
                     <div>
                         <x-input-label for="imp_true" :value="__('answer.imp')" />
 
-                        <x-text-input id="imp_true" class="block mt-1 w-full" type="text" name="imp_true" value="{{ $impact->name }}" required autofocus />
-
+                        <select name="imp_true">
+                            @foreach ($impacts as $imp_opcions)
+                            <option value="{{ $imp_opcions->id }}" @if ($imp_opcions->name == old('imp_true', $impact->name))
+                                selected="selected"
+                                @endif
+                                >{{ $imp_opcions->name }}</option>
+                            @endforeach
+                        </select>
                         <x-input-error :messages="$errors->get('text')" class="mt-2" />
                     </div>
                 </div>
@@ -124,9 +142,9 @@
                     <div>
                         <x-input-label for="risk_false" :value="__('answer.risk')" />
 
-                        <select name="myselect">
+                        <select name="risk_false">
                             @foreach ($risks as $risk_opcions)
-                            <option value="{{ $risk_opcions->id }}" @if ($risk_opcions->name == old('myselect', $risk1->name))
+                            <option value="{{ $risk_opcions->id }}" @if ($risk_opcions->name == old('risk_false', $risk1->name))
                                 selected="selected"
                                 @endif
                                 >{{ $risk_opcions->name }}</option>
@@ -138,9 +156,9 @@
                     <div>
                         <x-input-label for="type_false" :value="__('answer.type')" />
 
-                        <select name="myselect">
+                        <select name="type_false">
                             @foreach ($types as $type_opcions)
-                            <option value="{{ $type_opcions->id }}" @if ($type_opcions->name == old('myselect', $type1->name))
+                            <option value="{{ $type_opcions->id }}" @if ($type_opcions->name == old('type_false', $type1->name))
                                 selected="selected"
                                 @endif
                                 >{{ $type_opcions->name }}</option>
@@ -153,22 +171,41 @@
                     <div>
                         <x-input-label for="inter_false" :value="__('answer.inter')" />
 
-                        <x-text-input id="inter_false" class="block mt-1 w-full" type="text" name="inter_false" value="{{ $intervention1->name }}" required autofocus />
-
+                        <select name="inter_false">
+                            @foreach ($interventions as $inter_opcions)
+                            <option value="{{ $inter_opcions->id }}" @if ($inter_opcions->name == old('inter_false', $intervention1->name))
+                                selected="selected"
+                                @endif
+                                >{{ $inter_opcions->name }}</option>
+                            @endforeach
+                        </select>
                         <x-input-error :messages="$errors->get('text')" class="mt-2" />
                     </div>
                     <div>
                         <x-input-label for="prob_false" :value="__('answer.prob')" />
 
-                        <x-text-input id="prob_false" class="block mt-1 w-full" type="text" name="prob_false" value="{{ $probability1->name }}" required autofocus />
 
+                        <select name="prob_false">
+                            @foreach ($probabilities as $prob_opcions)
+                            <option value="{{ $prob_opcions->id }}" @if ($prob_opcions->name == old('prob_false', $probability1->name))
+                                selected="selected"
+                                @endif
+                                >{{ $prob_opcions->name }}</option>
+                            @endforeach
+                        </select>
                         <x-input-error :messages="$errors->get('text')" class="mt-2" />
                     </div>
                     <div>
                         <x-input-label for="imp_false" :value="__('answer.imp')" />
-
-                        <x-text-input id="imp_false" class="block mt-1 w-full" type="text" name="imp_false" value="{{ $impact1->name }}" required autofocus />
-
+                        
+                        <select name="imp_false">
+                            @foreach ($impacts as $imp_opcions)
+                            <option value="{{ $imp_opcions->id }}" @if ($imp_opcions->name == old('imp_false', $impact1->name))
+                                selected="selected"
+                                @endif
+                                >{{ $imp_opcions->name }}</option>
+                            @endforeach
+                        </select>
                         <x-input-error :messages="$errors->get('text')" class="mt-2" />
                     </div>
                     @endif
