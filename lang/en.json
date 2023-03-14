@@ -62,7 +62,16 @@
     "answer.type": "Type measure",
     "answer.inter": "Intervention",
     "answer.prob": "Probability",
-    "answer.imp": "Impact"
+    "answer.imp": "Impact",
+    "survey.name": "Audit name:",
+    "survey.question": "Question",
+    "survey.answer": "Answer",
+    "survey.percent": "Percentage",
+    "survey.map": "Audit map",
+    "survey.send": "Send",
+    "pagination.previous": "Previous",
+    "pagination.next": "Next"
+
 
 
 }
