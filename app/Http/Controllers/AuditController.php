@@ -16,8 +16,8 @@ class AuditController extends Controller
         /* Página con los cuestionarios por responder, luego habría que filtrar
         por usuario/empresa cuando los grupos estén unificados */
         $audits = Report::where('status', 'pending')
-        ->orderBy('id')
-        ->simplePaginate(10);
+            ->orderBy('id')
+            ->simplePaginate(10);
 
         return view('audit.index', compact('audits'));
     }
@@ -27,7 +27,7 @@ class AuditController extends Controller
 
         $survey = Report::find($id);
 
-        $questionnaire= Questionnaire::find($survey->questionnaire_id);
+        $questionnaire = Questionnaire::find($survey->questionnaire_id);
         $questions = $questionnaire->questions()->with('answers')->get();
 
         return view('audit.show', compact('survey', 'questions'));
@@ -37,7 +37,8 @@ class AuditController extends Controller
     {
         $survey = Report::find($id);
         $answers = $request->input('answerIds');
+        /* sync elimina antiguos valores y les mete los del array
+           pasado por axios a la pivot table 'answer_report */
         $survey->answers()->sync($answers);
-        // por acabar $survey->post()
     }
 }
