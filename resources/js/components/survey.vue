@@ -60,13 +60,17 @@
                                 <button
                                     class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
                                     :class="{ 'opacity-50 cursor-not-allowed': currentPage === 1 }"
-                                    :disabled="currentPage === 1" @click="currentPage--">&laquo; {{ $t('pagination.previous') }}</button>
+                                    :disabled="currentPage === 1" @click="currentPage--">&laquo; {{
+                                        $t('pagination.previous') }}</button>
                                 <button
                                     class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
                                     :class="{ 'opacity-50 cursor-not-allowed': currentPage === pageCount }"
-                                    :disabled="currentPage === pageCount" @click="currentPage++">{{ $t('pagination.next') }} &raquo;</button>
+                                    :disabled="currentPage === pageCount" @click="currentPage++">{{ $t('pagination.next') }}
+                                    &raquo;</button>
                                 <button v-if="surveySend" @click="submitAnswers"
-                                    class="relative inline-flex justify-center items-center w-48 rounded-md bg-orange-600 py-2 px-3 text-sm font-semibold text-white hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600">{{ $t('survey.send') }}</button>
+                                    class="relative inline-flex items-center rounded-md bg-orange-600 py-2 px-3 text-sm font-semibold text-white hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600">
+                                    <PaperAirplaneIcon class="h-5 w-5 mr-1" aria-hidden="true" /> {{ $t('survey.send') }}
+                                </button>
                             </nav>
                         </div>
                     </div>
@@ -87,6 +91,7 @@
 
 <script setup>
 import { ref, computed, watch } from 'vue'
+import { PaperAirplaneIcon } from '@heroicons/vue/24/outline'
 import axios from 'axios'
 // propiedades para pasarle datos desde controlador laravel
 const props = defineProps({
@@ -117,7 +122,7 @@ function selectAnswer(answerId) {
 
 // cambiar de página desde botón
 function goToPage(page) {
-    currentPage.value = page;
+    currentPage.value = page
 }
 
 // calcular paginación
@@ -162,7 +167,7 @@ async function submitAnswers() {
         const data = response.data;
 
         // Handle response from server here
-        window.location.href = data.redirect;
+        window.location.href = `${data.redirect}?message=success`;
     } catch (error) {
         console.error(error);
     }

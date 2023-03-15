@@ -69,7 +69,8 @@
     "survey.percent": "Porcentaje",
     "survey.map": "Mapa de la auditoría",
     "survey.send": "Enviar",
-    "survey.start": "Iniciar auditoría",
+    "survey.start": "Iniciar",
+    "survey.completed": "Auditoría completada",
     "pagination.previous": "Anterior",
     "pagination.next": "Siguiente"
 
