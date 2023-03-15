@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
-        integrity="sha512-fEbbx62zKbG2tvw3qPb3Itb0Nl1hdjKbW8qzv9Mwea7pzF1HzsDd7VvKebt97J7tG/DiQKzI8vGdQVDz7fJrLg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-fEbbx62zKbG2tvw3qPb3Itb0Nl1hdjKbW8qzv9Mwea7pzF1HzsDd7VvKebt97J7tG/DiQKzI8vGdQVDz7fJrLg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Informe </title>
 </head>
 
@@ -30,17 +28,17 @@
             </thead>
             <tbody>
                 @foreach ($report as $row)
-                    <tr>
-                        <th scope="row">{{ $row->id }}</th>
-                        <td class="px-6 py-4">{{ $row->answers }}</td>
-                        <td class="px-6 py-4">{{ $row->recommendation }}</td>
-                        <td class="px-6 py-4">{{ $row->questions }}</td>
-                        <td class="px-6 py-4">{{ $row->type_measures }}</td>
-                        <td class="px-6 py-4">{{ $row->risks }}</td>
-                        <td class="px-6 py-4">{{ $row->probabilities }}</td>
-                        <td class="px-6 py-4">{{ $row->interventions }}</td>
-                        <td class="px-6 py-4">{{ $row->impacts }}</td>
-                    </tr>
+                <tr>
+                    <th scope="row">{{ $row->id }}</th>
+                    <td class="px-6 py-4">{{ $row->answers }}</td>
+                    <td class="px-6 py-4">{{ $row->recommendation }}</td>
+                    <td class="px-6 py-4">{{ $row->questions }}</td>
+                    <td class="px-6 py-4">{{ $row->type_measures }}</td>
+                    <td class="px-6 py-4">{{ $row->risks }}</td>
+                    <td class="px-6 py-4">{{ $row->probabilities }}</td>
+                    <td class="px-6 py-4">{{ $row->interventions }}</td>
+                    <td class="px-6 py-4">{{ $row->impacts }}</td>
+                </tr>
                 @endforeach
             </tbody>
         </table>
@@ -48,19 +46,19 @@
 
     <footer class="bg-gray-900 py-8">
         <div>
-          <div class="text-white">
-              {{-- <img src="{{ public_path('img/logo_pymeshield_black.png') }}" alt="Logo" class="w-16"> --}}
-          </div>
-          <div class="text-white">
-            <h6 class="font-bold text-lg">{{ __('footer.contact') }}</h6>
-            <ul class="mt-4">
-              <li><a href="tel:682849274" class="text-lg">682849274</a></li>
-              <li><a href="mailto:support@pymeshield.com" class="text-lg">info@pymeshield.com</a></li>
-              <p class="mt-4 text-lg">{{ __('footer.by') }}</p>
-            </ul>
-          </div>
+            <div class="text-white">
+                {{-- <img src="{{ public_path('img/logo_pymeshield_black.png') }}" alt="Logo" class="w-16"> --}}
+            </div>
+            <div class="text-white">
+                <h6 class="font-bold text-lg">{{ __('footer.contact') }}</h6>
+                <ul class="mt-4">
+                    <li><a href="tel:682849274" class="text-lg">682849274</a></li>
+                    <li><a href="mailto:support@pymeshield.com" class="text-lg">info@pymeshield.com</a></li>
+                    <p class="mt-4 text-lg">{{ __('footer.by') }}</p>
+                </ul>
+            </div>
         </div>
-      </footer>
+    </footer>
 
 </body>
 
