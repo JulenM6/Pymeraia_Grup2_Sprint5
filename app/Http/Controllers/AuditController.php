@@ -33,15 +33,20 @@ class AuditController extends Controller
         return view('audit.show', compact('survey', 'questions'));
     }
 
-    public function update(Request $request, $id)
+    public function store(Request $request, $id)
     {
         $survey = Report::find($id);
         $answers = $request->input('answerIds');
         /* sync elimina antiguos valores y les mete los del array
            pasado por axios a la pivot table 'answer_report */
+        $survey->answers()->detach();
         $survey->answers()->sync($answers);
         // cambiando el estado a done y guardando
         $survey->status = 'done';
         $survey->save();
+
+        return response()->json([
+            'redirect' => route('report.index')
+        ]);
     }
 }
