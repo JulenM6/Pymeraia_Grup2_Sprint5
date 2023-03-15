@@ -108,10 +108,8 @@ function selectAnswer(answerId) {
 
     if (index !== -1) {
         answers.value[index].answerId = answerId
-        console.log(answers)
     } else {
         answers.value.push({ currentPage: currentPage.value, answerId })
-        console.log(answers)
     }
 
     localStorage.setItem('answers' + props.survey.id, JSON.stringify(answers.value))
@@ -155,7 +153,7 @@ function isReplied(guide) {
 async function submitAnswers() {
     try {
         const answerIds = answers.value.map(answer => answer.answerId);
-        const response = await axios.put(`/audit/save/${props.survey.id}`, {
+        const response = await axios.post(`/audit/save/${props.survey.id}`, {
             answerIds: answerIds
         });
         //limpio las respuestas
@@ -164,6 +162,7 @@ async function submitAnswers() {
         const data = response.data;
 
         // Handle response from server here
+        window.location.href = data.redirect;
     } catch (error) {
         console.error(error);
     }
