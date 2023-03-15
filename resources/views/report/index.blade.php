@@ -1,16 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    @if (request('message') == 'success')
-        <div
-            class="flex w-64 items-center justify-between shadow-md sm:rounded-lg mt-5 mx-auto mb-4 rounded-lg py-5 px-6 text-base bg-green-300">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                class="w-6 h-6 inline-block">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-            {{ __('survey.completed') }}
-        </div>
-    @endif
     <div class="overflow-x-auto shadow-md sm:rounded-lg m-5">
         <table class="table-auto w-full shadow-lg rounded-lg">
             <thead>
@@ -35,7 +25,7 @@
                 @foreach ($reports as $report)
                     <tr class="bg-orange-50 hover:bg-orange-100 text-center">
 
-                        <th scope="row"  class="px-6 py-3 uppercase">
+                        <th scope="row" class="px-6 py-3 uppercase">
                             {{ $report->id }}
                         </th>
                         <td class="px-6 py-4">

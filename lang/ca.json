@@ -70,7 +70,10 @@
     "survey.map": "Mapa de l'auditoria",
     "survey.send": "Enviar",
     "survey.start": "Iniciar",
-    "survey.completed": "Auditoria completada",
+    "survey.completed": "Auditoria completada!",
+    "survey.failed": "Torna a intentar-ho en una estona.",
+    "survey.error": "Error inesperat!",
+    "survey.success": "Redireccionant en 5 segons...",
     "pagination.previous": "Anterior",
     "pagination.next": "Següent"
 

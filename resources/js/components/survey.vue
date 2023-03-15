@@ -68,12 +68,31 @@
                                     :disabled="currentPage === pageCount" @click="currentPage++">{{ $t('pagination.next') }}
                                     &raquo;</button>
                                 <button v-if="surveySend" @click="submitAnswers"
-                                    class="relative inline-flex items-center rounded-md bg-orange-600 py-2 px-3 text-sm font-semibold text-white hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600">
+                                    class="relative inline-flex items-center rounded-md bg-orange-600 py-2 px-3 text-sm font-semibold text-white hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+                                    :class="{ 'opacity-50 cursor-not-allowed': hasError === 2 }"
+                                    :disabled="hasError === 2">
                                     <PaperAirplaneIcon class="h-5 w-5 mr-1" aria-hidden="true" /> {{ $t('survey.send') }}
                                 </button>
                             </nav>
                         </div>
                     </div>
+                </div>
+                <!-- mostrar mensaje error/success -->
+                <div class="p-4 text-sm text-green-800 bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert"
+                    v-if="hasError === 2">
+                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 inline-block" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+                            </circle>
+                            <path class="opacity-75" fill="currentColor"
+                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                            </path>
+                        </svg>
+                    <span class="font-medium">{{ $t('survey.completed') }}</span> {{ $t('survey.success') }}
+                </div>
+                <div class="p-4 text-sm text-red-800 bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert"
+                    v-if="hasError === 1">
+                    <span class="font-medium">{{ $t('survey.error') }}</span> {{ $t('survey.failed') }}
                 </div>
             </div>
             <!-- mapa navegación -->
@@ -103,6 +122,7 @@ const props = defineProps({
 const currentPage = ref(1)
 const perPage = ref(1)
 const pageCount = computed(() => Math.ceil(props.questions.length / perPage.value))
+const hasError = ref(0); // por si hay errores
 
 // guardo las respuestas con localStorage para sobrevivir a efecincos
 const answers = ref(JSON.parse(localStorage.getItem('answers' + props.survey.id)) || []);
@@ -161,15 +181,18 @@ async function submitAnswers() {
         const response = await axios.post(`/audit/save/${props.survey.id}`, {
             answerIds: answerIds
         });
-        //limpio las respuestas
-        localStorage.removeItem(`answers${props.survey.id}`)
 
         const data = response.data;
 
-        // Handle response from server here
-        window.location.href = `${data.redirect}?message=success`;
+        // limpio las respuestas si el envio es bueno y redirect
+        localStorage.removeItem(`answers${props.survey.id}`)
+        hasError.value = 2 // esto es success
+        setTimeout(() => {
+            window.location.href = data.redirect;
+        }, 5000);
     } catch (error) {
-        console.error(error);
+        // para mostrar aviso al usuario si falla
+        hasError.value = 1;
     }
 }
 </script>

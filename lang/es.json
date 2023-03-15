@@ -70,7 +70,10 @@
     "survey.map": "Mapa de la auditoría",
     "survey.send": "Enviar",
     "survey.start": "Iniciar",
-    "survey.completed": "Auditoría completada",
+    "survey.completed": "¡Auditoría completada!",
+    "survey.failed": "Vuelve a intentarlo en un rato.",
+    "survey.error": "¡Error inesperado!",
+    "survey.success": "Redireccionando en 5 segundos...",
     "pagination.previous": "Anterior",
     "pagination.next": "Siguiente"
 

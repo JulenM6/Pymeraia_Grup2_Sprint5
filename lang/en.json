@@ -70,7 +70,10 @@
     "survey.map": "Audit map",
     "survey.send": "Send",
     "survey.start": "Start",
-    "survey.completed": "Audit completed",
+    "survey.completed": "Audit completed!",
+    "survey.failed": "Please try again in a bit.",
+    "survey.error": "Unexpected error!",
+    "survey.success": "Redirecting in 5 seconds...",
     "pagination.previous": "Previous",
     "pagination.next": "Next"
 
