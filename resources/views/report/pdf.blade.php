@@ -56,7 +56,6 @@
             <ul class="mt-4">
               <li><a href="tel:682849274" class="text-lg">682849274</a></li>
               <li><a href="mailto:support@pymeshield.com" class="text-lg">info@pymeshield.com</a></li>
-              <p class="mt-4 text-lg">{{ __('footer.by') }}</p>
             </ul>
           </div>
         </div>
