@@ -17,7 +17,7 @@ class AuditController extends Controller
         $audits = Report::where('status', 'pending')
             ->orderBy('id')
             ->with('questionnaire')
-            ->simplePaginate(10);
+            ->Paginate(10);
 
         return view('audit.index', compact('audits'));
     }

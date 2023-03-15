@@ -1,24 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="flex overflow-x-auto max-w-4xl items-center justify-between shadow-md sm:rounded-lg mt-5 mx-auto">
-        <table class="table-auto w-full text-sm text-center text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                <tr>
+    <div class="overflow-x-auto shadow-md sm:rounded-lg m-5">
+        <table class="table-auto w-full shadow-lg rounded-lg">
+            <thead class="text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr class="bg-orange-400 text-white">
 
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 uppercase">
                         {{ __('table.id') }}
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 uppercase">
                         {{ __('table.name') }}
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 uppercase">
                         {{ __('questionnaire.name') }}
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 uppercase">
                         {{ __('table.date') }}
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 uppercase">
                     </th>
 
 
@@ -26,22 +26,21 @@
             </thead>
             <tbody>
                 @foreach ($audits as $audit)
-                    <tr
-                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <tr class="bg-orange-50 hover:bg-orange-100 text-center">
 
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900">
                             {{ $audit->id }}
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 font-medium text-gray-900">
                             {{ $audit->name }}
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 font-medium text-gray-900">
                             {{ $audit->questionnaire->name }}
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 font-medium text-gray-900">
                             {{ $audit->date }}
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 font-medium text-gray-900">
                             <a href="{{ route('audit.survey', [$audit->id]) }}"
                                 class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded mt-5 items-center">{{ __('survey.start') }}</a>
                         </td>
@@ -50,12 +49,8 @@
             </tbody>
         </table>
         <!-- Paginación -->
-        <div class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <div class="row">
-                <div class="col-12">
-                    {{ $audits->links() }}
-                </div>
-            </div>
+        <div class="flex justify-center my-4">
+            {{ $audits->links('vendor.pagination.tailwind') }}
         </div>
     </div>
 @endsection
