@@ -60,9 +60,13 @@
             </tbody>
         </table>
 
-        <div class="flex justify-center mt-4">
-    {{ $questions->links('vendor.pagination.tailwind') }}
-</div>
+        <div class="p-3 text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <div class="row">
+                <div class="col-12">
+                    {{ $questions->links() }}
+                </div>
+            </div>
+        </div>
     </div>
 
 @endsection
