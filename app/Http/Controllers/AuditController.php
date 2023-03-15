@@ -17,6 +17,7 @@ class AuditController extends Controller
         por usuario/empresa cuando los grupos estén unificados */
         $audits = Report::where('status', 'pending')
             ->orderBy('id')
+            ->with('questionnaire')
             ->simplePaginate(10);
 
         return view('audit.index', compact('audits'));
