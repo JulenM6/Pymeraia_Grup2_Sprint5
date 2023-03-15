@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class=" overflow-x-auto shadow-md sm:rounded-lg m-5">
+    <div class="overflow-x-auto shadow-md sm:rounded-lg m-5">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -43,7 +43,7 @@
                         </td>
                         <td class="px-6 py-4">
                             <a href="{{ route('audit.survey', [$audit->id]) }}"
-                                class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded mt-5 items-center"><i class="fa-solid fa-circle-arrow-right"></i> {{ __('survey.start') }}</a>
+                                class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded mt-5 items-center">{{ __('survey.start') }}</a>
                         </td>
                     </tr>
                 @endforeach
