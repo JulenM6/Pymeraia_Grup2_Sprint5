@@ -12,7 +12,7 @@ class ReportController extends Controller
     public function index()
     {
         //pagina principal de informes mostra llistat informes
-        $reports = Report::all();
+        $reports = Report::paginate(10);
 
         return view('report.index', compact('reports'));
     }

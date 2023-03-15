@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Answer;
 use App\Models\Questionnaire;
 use App\Models\Report;
 use Illuminate\Http\Request;
