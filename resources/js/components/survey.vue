@@ -167,7 +167,7 @@ async function submitAnswers() {
         const data = response.data;
 
         // Handle response from server here
-        window.location.href = `${data.redirect}?message=Auditoría completa`;
+        window.location.href = `${data.redirect}?message=success`;
     } catch (error) {
         console.error(error);
     }

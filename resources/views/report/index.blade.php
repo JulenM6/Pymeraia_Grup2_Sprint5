@@ -1,7 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class=" overflow-x-auto shadow-md sm:rounded-lg m-5">
+    @if (request('message') == 'success')
+        <div
+            class="flex w-64 items-center justify-between shadow-md sm:rounded-lg mt-5 mx-auto mb-4 rounded-lg py-5 px-6 text-base bg-green-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                class="w-6 h-6 inline-block">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+            {{ __('survey.completed') }}
+        </div>
+    @endif
+    <div class="overflow-x-auto shadow-md sm:rounded-lg m-5">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
