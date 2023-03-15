@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="overflow-x-auto shadow-md sm:rounded-lg m-5">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <div class="flex overflow-x-auto max-w-4xl items-center justify-between shadow-md sm:rounded-lg mt-5 mx-auto">
+        <table class="table-auto w-full text-sm text-center text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
 
@@ -50,7 +50,7 @@
             </tbody>
         </table>
         <!-- Paginación -->
-        <div class="p-3 text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <div class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <div class="row">
                 <div class="col-12">
                     {{ $audits->links() }}
