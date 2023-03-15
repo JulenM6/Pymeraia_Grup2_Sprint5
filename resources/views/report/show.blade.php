@@ -1,35 +1,35 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class=" overflow-x-auto shadow-md sm:rounded-lg m-5">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                <tr>
-                    <th scope="col" class="px-6 py-3">
+    <div class="overflow-x-auto shadow-md sm:rounded-lg m-5">
+        <table class="table-auto w-full shadow-lg rounded-lg">
+            <thead>
+                <tr class="bg-orange-400 text-white">
+                    <th class="px-6 py-3 uppercase">
                         {{ __('table.id') }}
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th class="px-6 py-3 uppercase">
                         {{ __('report.answer') }}
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th class="px-6 py-3 uppercase">
                         {{ __('report.recommendation') }}
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th class="px-6 py-3 uppercase">
                         {{ __('report.question') }}
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th class="px-6 py-3 uppercase">
                         {{ __('report.type.measure') }}
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th class="px-6 py-3 uppercase">
                         {{ __('report.risk') }}
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th class="px-6 py-3 uppercase">
                         {{ __('report.probability') }}
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th class="px-6 py-3 uppercase">
                         {{ __('report.intervention') }}
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th class="px-6 py-3 uppercase">
                         {{ __('report.impact') }}
                     </th>
                 </tr>
@@ -37,9 +37,9 @@
             <tbody>
                 @foreach ($report as $row)
                     <tr
-                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    class="bg-orange-50 hover:bg-orange-100 text-center">
 
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-6 py-3 uppercase">
                             {{ $row->id }}
                         </th>
                         <td class="px-6 py-4">
