@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Carbon\Carbon;
 use App\Models\Question;
 use App\Models\Answer;
@@ -14,58 +15,62 @@ use Mockery\Matcher\Type;
 
 class QuestionController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         //pagina principal de informes mostra llistat informes
         $questions = Question::where('hidden', false)
-        ->orderBy('id','desc')
-        ->orWhereNull('hidden')
-        ->simplePaginate(10);
+            ->orderBy('id', 'desc')
+            ->orWhereNull('hidden')
+            ->simplePaginate(10);
 
         return view('question.index', compact('questions'));
     }
 
-    public function hidden(){
+    public function hidden()
+    {
         //pagina principal de informes mostra llistat informes
-        
+
         $questions = Question::whereNotNull('hidden')->simplePaginate(10);
 
         return view('question.hidden', compact('questions'));
     }
     //acció
 
-    public function create(){
+    public function create()
+    {
         $risks = Risk::all();
         $interventions = Intervention::all();
         $type_measures = TypeMeasure::all();
         $probabilities = Probability::all();
         $impacts = Impact::all();
-        
 
 
-        return view('question.create',compact('risks','interventions','type_measures','probabilities','impacts'));
+
+        return view('question.create', compact('risks', 'interventions', 'type_measures', 'probabilities', 'impacts'));
     }
-  
 
-    public function store(Request $request){
+
+    public function store(Request $request)
+    {
         //crear preguntes
-        
+
         $question = new Question();
- 
+
         $question->name = $request->name;
 
         $question->description = $request->description;
- 
+
         $question->save();
 
         $lastInsertedRecord = Question::orderBy('id', 'desc')->first();
         $lastId = $lastInsertedRecord->id;
 
-       
+
         $answer = new Answer();
-       
+
         $answer->name = 'Si';
-        
-       
+
+
         $answer->recommendation = $request->recommendation_true;
 
         $answer->risk_id = $request->risk_true;
@@ -84,7 +89,7 @@ class QuestionController extends Controller
 
 
         $answer2 = new Answer();
- 
+
         $answer2->name = 'No';
 
         $answer2->recommendation = $request->recommendation_false;
@@ -104,13 +109,12 @@ class QuestionController extends Controller
         $answer2->save();
 
         return response()->json(['id' => $question->id]);
-        
     }
 
     public function edit(Question $question)
     {
         $answers = Answer::where('question_id', $question->id)->get();
-        
+
         $risks = Risk::all();
         $types  = TypeMeasure::all();
         $interventions = Intervention::all();
@@ -127,7 +131,7 @@ class QuestionController extends Controller
         // $question2->answers()[0];
 
 
-    
+
         $risk1 = null;
         $type1 = null;
         $intervention1 = null;
@@ -140,12 +144,9 @@ class QuestionController extends Controller
             $intervention1 = $interventions->find($answers[1]->intervention_id);
             $probability1 = $probabilities->find($answers[1]->probability_id);
             $impact1 = $impacts->find($answers[1]->impact_id);
-
-
-
         }
 
-        return view('question.edit', compact('question', 'answers','risks', 'risk', 'risk1','types','type','type1','interventions', 'intervention','intervention1', 'probabilities', 'probability','probability1', 'impacts', 'impact','impact1'));
+        return view('question.edit', compact('question', 'answers', 'risks', 'risk', 'risk1', 'types', 'type', 'type1', 'interventions', 'intervention', 'intervention1', 'probabilities', 'probability', 'probability1', 'impacts', 'impact', 'impact1'));
     }
 
     public function update(Request $request, $id)
@@ -154,12 +155,12 @@ class QuestionController extends Controller
         $question->name = $request->name;
         $question->description = $request->description;
         $question->update();
-        
+
         // $answer = Answer::where('id', $question->id)->get();
-       
+
         $answers = Answer::where('question_id', $question->id)->get();
 
-        
+
         $answer_count = 1;
         foreach ($answers as $answer) {
             if ($answer_count == 1) {
@@ -170,7 +171,6 @@ class QuestionController extends Controller
                 $answer->intervention_id = $request->inter_true;
                 $answer->probability_id = $request->prob_true;
                 $answer->impact_id = $request->imp_true;
-
             } else {
                 $answer->name = $request->answer_name_false;
                 $answer->recommendation = $request->reco_false;
@@ -187,7 +187,8 @@ class QuestionController extends Controller
         return redirect()->route('question.index');
     }
 
-    public function unActivate($id){
+    public function unActivate($id)
+    {
 
         $question = Question::find($id);
         $question->hidden = now();
@@ -196,7 +197,8 @@ class QuestionController extends Controller
         return redirect()->route('question.index');
     }
 
-    public function activate($id){
+    public function activate($id)
+    {
 
         $question = Question::find($id);
         $question->hidden = null;

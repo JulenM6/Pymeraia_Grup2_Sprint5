@@ -122,7 +122,6 @@ export default {
                 { name: this.$t('navbar.home'), href: '#', current: false, icon: HomeIcon },
                 { name: this.$t('navbar.questionnaires'), href: '/questionnaire', current: false, icon: QuestionMarkCircleIcon },
                 { name: this.$t('navbar.questions'), href: '/question', current: false, icon: AcademicCapIcon },
-                { name: this.$t('navbar.answers'), href: '/answer', current: false, icon: Bars3Icon },
                 { name: this.$t('navbar.reports'), href: '/report', current: false, icon: CalendarDaysIcon },
                 { name: this.$t('navbar.audits'), href: '/audit', current: false, icon: ClipboardDocumentCheckIcon },
             ],

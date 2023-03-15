@@ -55,14 +55,5 @@ class ReportController extends Controller
 
         $pdf = PDF::loadView('report.pdf', compact('report'))->setPaper('legal', 'landscape');
         return $pdf->stream();
-        // return $pdf->download('Informe numero: ' . $id . '.pdf');
     }
-
-
-    // public function pdf()
-    // {
-    //     $report = Report::all();
-    //     $pdf = PDF::loadView('report.pdf', compact('report'));
-    //     return $pdf->download('report.pdf');
-    // }
 }

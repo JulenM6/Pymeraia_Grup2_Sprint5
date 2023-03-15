@@ -26,14 +26,16 @@ class QuestionnaireController extends Controller
     }
 
 
-    public function create(){
+    public function create()
+    {
         $questionnaires = Questionnaire::all();
 
         return view('questionnaire.create', compact('questionnaires'));
     }
 
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
         $questionnaire = new Questionnaire();
         $questionnaire->name = $request->questionnaire_name;
@@ -46,11 +48,12 @@ class QuestionnaireController extends Controller
         return response()->json(['id' => $questionnaire->id]);
     }
 
-    public function edit(Questionnaire $questionnaire){
+    public function edit(Questionnaire $questionnaire)
+    {
 
         $questions = Question::all();
         $assigned_questions = $questionnaire->questions;
-        $unassigned_questions = $questions->filter(function($question) use ($assigned_questions) {
+        $unassigned_questions = $questions->filter(function ($question) use ($assigned_questions) {
             return !$assigned_questions->contains($question);
         });
 
@@ -70,7 +73,8 @@ class QuestionnaireController extends Controller
         return redirect()->back();
     }
 
-    public function unActivate($id){
+    public function unActivate($id)
+    {
 
         $questionnaire = Questionnaire::find($id);
         $questionnaire->hidden = now();
@@ -79,7 +83,8 @@ class QuestionnaireController extends Controller
         return redirect()->route('questionnaire.index');
     }
 
-    public function activate($id){
+    public function activate($id)
+    {
 
         $questionnaire = Questionnaire::find($id);
         $questionnaire->hidden = null;
@@ -119,8 +124,4 @@ class QuestionnaireController extends Controller
 
         return redirect()->back();
     }
-
-
-
-
 }

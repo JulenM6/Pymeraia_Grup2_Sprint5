@@ -12,9 +12,6 @@ const app = createApp()
 const navbar = defineAsyncComponent(() => import('./components/Navbar.vue'));
 app.component('navbar', navbar);
 
-const contactComponent = defineAsyncComponent(() => import('./web/ContactoCom.vue'));
-app.component('contact-component', contactComponent);
-
 const formComponent = defineAsyncComponent(() => import('./components/form.vue'));
 app.component('form-component', formComponent);
 
