@@ -16,16 +16,16 @@
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
 
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 uppercase">
                         {{ __('table.id') }}
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 uppercase">
                         {{ __('table.name') }}
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 uppercase">
                         {{ __('table.date') }}
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 uppercase">
                     </th>
 
 
@@ -33,10 +33,9 @@
             </thead>
             <tbody>
                 @foreach ($reports as $report)
-                    <tr
-                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <tr class="bg-orange-400 text-white">
 
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row"  class="px-6 py-3 uppercase">
                             {{ $report->id }}
                         </th>
                         <td class="px-6 py-4">
