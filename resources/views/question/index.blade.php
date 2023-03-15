@@ -15,30 +15,30 @@
         </div>
     </div>
     <div class="overflow-x-auto max-w-4xl mx-auto shadow-md sm:rounded-lg m-5">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <table class="table-auto w-full shadow-lg rounded-lg">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-                <th scope="col" class="px-6 py-3">
+            <tr class="bg-orange-400 text-white">
+                <th scope="col" class="px-6 py-3 uppercase">
                     {{__('id')}}
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="px-6 py-3 uppercase">
                     {{__('question.name')}}
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="px-6 py-3 uppercase">
                     {{__('question.description')}}
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="px-6 py-3 uppercase">
                     {{__('actions')}}
                 </th>
             </tr>
             </thead>
             <tbody>
             @foreach ($questions as $question)
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <tr class="bg-orange-50 hover:bg-orange-100 text-center">
+                    <th scope="row" class="px-6 py-4">
                         {{ $question->id }}
                     </th>
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <th scope="row" class="px-6 py-4">
                         {{ $question->name }}
                     </th>
                     <th class="px-6 py-4">
@@ -60,13 +60,9 @@
             </tbody>
         </table>
 
-        <div class="p-3 text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <div class="row">
-                <div class="col-12">
-                    {{ $questions->links() }}
-                </div>
-            </div>
-        </div>
+        <div class="flex justify-center mt-4">
+    {{ $questions->links('vendor.pagination.tailwind') }}
+</div>
     </div>
 
 @endsection
