@@ -31,8 +31,8 @@
             </ul>
         </div>
         <div>
-            
-       
+
+
             <h6>{{__('footer.about')}}</h6>
             <ul>
                 <li><a href="#">{{__('footer.privacy')}}</a></li>
@@ -47,12 +47,12 @@
                 <li><a href="mailto:support@pymeshield.com">info@pymeshield.com</a></li>
             </ul>
         </div>
-        <div>
-           
+        <div class="overflow-x-auto mx-auto">
+
 
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3028.323344120619!2d0.5863521215413386!3d40.62275062293998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a0554f5ec517f7%3A0x2bf0c75a59e9c399!2sPymeralia!5e0!3m2!1sca!2ses!4v1678892904546!5m2!1sca!2ses" width="290" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-            
+
         </div>
     </div>
 </footer>
