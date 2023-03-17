@@ -74,6 +74,13 @@
     "survey.failed": "Torna a intentar-ho en una estona.",
     "survey.error": "Error inesperat!",
     "survey.success": "Redireccionant en 5 segons...",
+    "survey.create": "Crear auditoria",
+    "survey.questionnaires": "Qüestionaris",
+    "survey.choose.questionnaire": "Escull un qüestionari",
+    "survey.users": "Usuaris",
+    "survey.choose.user": "Escull un usuari",
+    "create": "Crear",
+    "cancel": "Cancel·la",
     "pagination.previous": "Anterior",
     "pagination.next": "Següent"
 

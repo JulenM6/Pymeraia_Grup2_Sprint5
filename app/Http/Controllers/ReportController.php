@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Questionnaire;
 use App\Models\Report;
+use App\Models\User;
 use Dompdf\Dompdf;
 use Illuminate\Support\Facades\DB;
 use PDF;
+use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
     public function index()
     {
-        //pagina principal de informes mostra llistat informes
-        $reports = Report::paginate(10);
+        //pagina principal de informes mostra llistat informes (solo sin completar)
+        $reports = Report::where('status', 'done')->orderBy('date', 'desc')->paginate(10);
 
         return view('report.index', compact('reports'));
     }
@@ -55,5 +58,20 @@ class ReportController extends Controller
 
         $pdf = PDF::loadView('report.pdf', compact('report'))->setPaper('legal', 'landscape');
         return $pdf->stream();
+    }
+
+    public function store(Request $request)
+    {
+        // crear un report (desde la vista auditorías)
+        $report = new Report();
+        $report->name = $request->input('reportName');
+        $report->questionnaire_id = $request->input('selectedQuestionnaire');
+        $report->user_id = $request->input('selectedUser');
+        $report->date = date('Y-m-d');
+        $report->status = "pending";
+
+        $report->save();
+
+        return response()->json(['id' => $report->id]);
     }
 }

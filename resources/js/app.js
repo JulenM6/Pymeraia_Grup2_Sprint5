@@ -12,14 +12,17 @@ const app = createApp()
 const navbar = defineAsyncComponent(() => import('./components/Navbar.vue'));
 app.component('navbar', navbar);
 
-const formComponent = defineAsyncComponent(() => import('./components/form.vue'));
+const formComponent = defineAsyncComponent(() => import('./components/Form.vue'));
 app.component('form-component', formComponent);
 
-const questionnaireFormComponent = defineAsyncComponent(() => import('./components/questionnaire_form.vue'));
+const questionnaireFormComponent = defineAsyncComponent(() => import('./components/QuestionnaireForm.vue'));
 app.component('questionnaire-component', questionnaireFormComponent);
 
-const survey = defineAsyncComponent(() => import('./components/survey.vue'));
+const survey = defineAsyncComponent(() => import('./components/Survey.vue'));
 app.component('survey', survey);
+
+const createReport = defineAsyncComponent(() => import('./components/CreateReport.vue'));
+app.component('create-report', createReport);
 
 app.use(AxiosPlugin);
 

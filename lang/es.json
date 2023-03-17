@@ -74,6 +74,13 @@
     "survey.failed": "Vuelve a intentarlo en un rato.",
     "survey.error": "¡Error inesperado!",
     "survey.success": "Redireccionando en 5 segundos...",
+    "survey.create": "Crear auditoría",
+    "survey.questionnaires": "Cuestionarios",
+    "survey.choose.questionnaire": "Escoge un cuestionario",
+    "survey.users": "Usuarios",
+    "survey.choose.user": "Escoge un usuario",
+    "create": "Crear",
+    "cancel": "Cancelar",
     "pagination.previous": "Anterior",
     "pagination.next": "Siguiente"
 

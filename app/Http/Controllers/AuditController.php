@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Questionnaire;
 use App\Models\Report;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -19,7 +20,11 @@ class AuditController extends Controller
             ->with('questionnaire')
             ->Paginate(10);
 
-        return view('audit.index', compact('audits'));
+
+        $questionnaires = Questionnaire::all();
+        $users = User::all();
+
+        return view('audit.index', compact('audits', 'questionnaires', 'users'));
     }
 
     public function show($id)

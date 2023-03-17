@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <div><create-report :questionnaires='{{ json_encode($questionnaires) }}' :users='{{ json_encode($users) }}' /></div>
     <div class="overflow-x-auto shadow-md sm:rounded-lg m-5">
         <table class="table-auto w-full shadow-lg rounded-lg">
             <thead class="text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

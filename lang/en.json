@@ -74,6 +74,13 @@
     "survey.failed": "Please try again in a bit.",
     "survey.error": "Unexpected error!",
     "survey.success": "Redirecting in 5 seconds...",
+    "survey.create": "Create audit",
+    "survey.questionnaires": "Questionnaires",
+    "survey.choose.questionnaire": "Choose a questionnaire",
+    "survey.users": "Users",
+    "survey.choose.user": "Choose a user",
+    "create": "Create",
+    "cancel": "Cancel",
     "pagination.previous": "Previous",
     "pagination.next": "Next"
 

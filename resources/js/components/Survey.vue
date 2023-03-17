@@ -28,7 +28,7 @@
                                 class="flex items-center mb-4">
                                 <input :id="'respuesta-' + index" type="radio" :name="'answer-group-' + question.id"
                                     :value="answer.id"
-                                    class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-orange-300 dark:focus:ring-orange-600 dark:focus:bg-orange-600 dark:bg-gray-700 dark:border-gray-600"
+                                    class="w-4 h-4 border-gray-300 focus:ring-2 text-orange-600 focus:ring-orange-300 dark:focus:ring-orange-600 dark:focus:bg-orange-600 dark:bg-gray-700 dark:border-gray-600"
                                     @change="selectAnswer(answer.id)"
                                     :checked="answers.find(a => a.currentPage === currentPage && a.answerId === answer.id) !== undefined">
                                 <label :for="'respuesta-' + index"
