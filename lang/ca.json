@@ -71,9 +71,10 @@
     "survey.send": "Enviar",
     "survey.start": "Iniciar",
     "survey.completed": "Auditoria completada!",
+    "survey.created": "Auditoria creada!",
     "survey.failed": "Torna a intentar-ho en una estona.",
     "survey.error": "Error inesperat!",
-    "survey.success": "Redireccionant en 5 segons...",
+    "survey.success": "Redireccionant en :seconds segons...",
     "survey.create": "Crear auditoria",
     "survey.questionnaires": "Qüestionaris",
     "survey.choose.questionnaire": "Escull un qüestionari",
@@ -82,8 +83,9 @@
     "create": "Crear",
     "cancel": "Cancel·la",
     "pagination.previous": "Anterior",
-    "pagination.next": "Següent"
-
-
-
+    "pagination.next": "Següent",
+    "pagination.showing": "Mostrant",
+    "pagination.results": "resultats",
+    "pagination.to": "a",
+    "pagination.of": "de"
 }

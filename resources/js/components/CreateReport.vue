@@ -42,11 +42,13 @@
                                             </div>
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="questionnaire"
-                                                    class="block text-sm font-medium leading-6 text-gray-900">{{ $t('survey.questionnaires') }}</label>
+                                                    class="block text-sm font-medium leading-6 text-gray-900">{{
+                                                        $t('survey.questionnaires') }}</label>
                                                 <select required v-model="selectedQuestionnaire" id="questionnaire"
                                                     name="questionnaire" autocomplete="questionnaire-name"
                                                     class="my-2 block w-full rounded-md border-0 bg-white py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6">
-                                                    <option :value="null" disabled>{{ $t('survey.choose.questionnaire') }}</option>
+                                                    <option :value="null" disabled>{{ $t('survey.choose.questionnaire') }}
+                                                    </option>
                                                     <option v-for="questionnaire in questionnaires"
                                                         :value="questionnaire.id">
                                                         {{ questionnaire.name }}</option>
@@ -54,7 +56,8 @@
                                             </div>
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="user"
-                                                    class="block text-sm font-medium leading-6 text-gray-900">{{ $t('survey.users') }}</label>
+                                                    class="block text-sm font-medium leading-6 text-gray-900">{{
+                                                        $t('survey.users') }}</label>
                                                 <select required v-model="selectedUser" id="user" name="user"
                                                     autocomplete="user-name"
                                                     class="my-2 block w-full rounded-md border-0 bg-white py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6">
@@ -67,12 +70,32 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- mostrar mensaje error/success -->
+                            <div class="p-4 text-green-800 bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert"
+                                v-if="hasError === 0">
+                                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 inline-block" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+                                        stroke-width="4">
+                                    </circle>
+                                    <path class="opacity-75" fill="currentColor"
+                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                    </path>
+                                </svg>
+                                <span class="font-medium">{{ $t('survey.created') }}</span> {{ $t('survey.success', { seconds: '3'}) }}
+                            </div>
+                            <div class="p-4 text-red-800 bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert"
+                                v-if="hasError === 1">
+                                <span class="font-medium">{{ $t('survey.error') }}</span> {{ $t('survey.failed') }}
+                            </div>
                             <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                                 <button type="submit"
                                     class="inline-flex w-full justify-center rounded-md bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 sm:ml-3 sm:w-auto"
+                                    :class="{ 'opacity-50 cursor-not-allowed': hasError === 0 }" :disabled="hasError === 0"
                                     @click="saveReport()">{{ $t('create') }}</button>
                                 <button type="button"
                                     class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                                    :class="{ 'opacity-50 cursor-not-allowed': hasError === 0 }" :disabled="hasError === 0"
                                     @click="open = false" ref="cancelButtonRef">{{ $t('cancel') }}</button>
                             </div>
                         </DialogPanel>
@@ -95,6 +118,9 @@ const props = defineProps({
     users: Object,
 })
 
+// por si hay errores
+const hasError = ref(null);
+
 // v-models
 const selectedUser = null
 const selectedQuestionnaire = null
@@ -111,11 +137,15 @@ async function saveReport() {
     };
     try {
         const response = await axios.post('/report', data);
-        console.log(response.data);
-        // respuesta
+        hasError.value = 0
+        setTimeout(() => {
+            open.value = false;
+            window.location.href = response.data.redirect;
+        }, 3000);
     } catch (error) {
         console.log(error);
-        // errores
+        // mostrar errores
+        hasError.value = 1;
     }
 }
 </script>

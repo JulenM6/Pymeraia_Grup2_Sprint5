@@ -72,6 +72,8 @@ class ReportController extends Controller
 
         $report->save();
 
-        return response()->json(['id' => $report->id]);
+        return response()->json([
+            'redirect' => route('audit.index')
+        ]);
     }
 }

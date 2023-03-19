@@ -71,9 +71,10 @@
     "survey.send": "Send",
     "survey.start": "Start",
     "survey.completed": "Audit completed!",
+    "survey.created": "Audit created!",
     "survey.failed": "Please try again in a bit.",
     "survey.error": "Unexpected error!",
-    "survey.success": "Redirecting in 5 seconds...",
+    "survey.success": "Redirecting in :seconds seconds...",
     "survey.create": "Create audit",
     "survey.questionnaires": "Questionnaires",
     "survey.choose.questionnaire": "Choose a questionnaire",
@@ -82,8 +83,9 @@
     "create": "Create",
     "cancel": "Cancel",
     "pagination.previous": "Previous",
-    "pagination.next": "Next"
-
-
-
+    "pagination.next": "Next",
+    "pagination.showing": "Showing",
+    "pagination.results": "results",
+    "pagination.to": "to",
+    "pagination.of": "of"
 }
