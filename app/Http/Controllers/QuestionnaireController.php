@@ -124,4 +124,10 @@ class QuestionnaireController extends Controller
 
         return redirect()->back();
     }
+    function indexmobil (){ 
+        return Questionnaire::all();
+    }
+    function indexmobilID ($id){ 
+        return Questionnaire::find($id);
+    }
 }
