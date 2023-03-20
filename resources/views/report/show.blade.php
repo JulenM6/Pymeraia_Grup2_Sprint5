@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="flex justify-end">
+
+        <?php
+        $idreport = \Request::getPathInfo();
+        $idreport = substr($idreport, 8);
+        ?>
+
+        <a href="{{ route('report.pdf', [$idreport]) }}" class="botonPersonalizado">{{ __('table.pdf') }}</a>
+
+    </div>
     <div class="overflow-x-auto shadow-md sm:rounded-lg m-5">
         <table class="table-auto w-full shadow-lg rounded-lg">
             <thead>
@@ -36,8 +46,7 @@
             </thead>
             <tbody>
                 @foreach ($report as $row)
-                    <tr
-                    class="bg-orange-50 hover:bg-orange-100 text-center">
+                    <tr class="bg-orange-50 hover:bg-orange-100 text-center">
 
                         <th scope="row" class="px-6 py-3 uppercase">
                             {{ $row->id }}
@@ -71,15 +80,5 @@
 
             </tbody>
         </table>
-    </div>
-    <div class="flex justify-end">
-
-        <?php
-        $idreport = \Request::getPathInfo();
-        $idreport = substr($idreport, 8);
-        ?>
-
-        <a href="{{ route('report.pdf', [$idreport]) }}" class="botonPersonalizado">{{ __('table.share') }}</a>
-
     </div>
 @endsection
