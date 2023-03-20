@@ -76,4 +76,10 @@ class ReportController extends Controller
             'redirect' => route('audit.index')
         ]);
     }
+    function indexmobil (){ 
+        return Report::all();
+    }
+    function indexmobilID ($id){ 
+        return Report::find($id);
+    }
 }

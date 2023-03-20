@@ -45,12 +45,12 @@
                         {{ $question->description }}
                     </th>
                     <th class="flex items-center px-6 py-4 space-x-3">
-                        <x-button-edit href="{{route('question.edit', $question)}}" >
+                        <button class="bg-blue-500 hover:bg-blue-700  text-white font-bold py-2 px-2 ml-2 rounded" href="{{route('question.edit', $question)}}" >
                             <i class="fa-regular fa-pen-to-square "></i>
-                        </x-button-edit>
-                        <x-button-activate href="{{route('question.unActivate', $question)}}">
+                        </button>
+                        <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 ml-2 rounded " href="{{route('question.unActivate', $question)}}">
                             <i class="fa-regular fa-trash-can"></i>
-                        </x-button-activate>
+                        </button>
                     </th>
                 </tr>
             @endforeach
