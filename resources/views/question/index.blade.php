@@ -45,12 +45,12 @@
                         {{ $question->description }}
                     </td>
                     <th class="flex items-center px-6 py-4 space-x-3">
-                        <button class="bg-blue-500 hover:bg-blue-700  text-white font-bold py-2 px-2 ml-2 rounded" href="{{route('question.edit', $question)}}" >
+                        <a class="bg-blue-500 hover:bg-blue-700  text-white font-bold py-2 px-2 ml-2 rounded" href="{{route('question.edit', $question)}}" >
                             <i class="fa-regular fa-pen-to-square "></i>
-                        </button>
-                        <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 ml-2 rounded " href="{{route('question.unActivate', $question)}}">
+                        </a>
+                        <a class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 ml-2 rounded " href="{{route('question.unActivate', $question)}}">
                             <i class="fa-regular fa-trash-can"></i>
-                        </button>
+                        </a>
                     </th>
                 </tr>
             @endforeach
