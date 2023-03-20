@@ -14,9 +14,9 @@
             </x-button-link>
         </div>
     </div>
-    <div class="overflow-x-auto max-w-4xl mx-auto shadow-md sm:rounded-lg m-5">
+    <div class="overflow-x-auto shadow-md sm:rounded-lg m-5">
         <table class="table-auto w-full shadow-lg rounded-lg">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <thead>
             <tr class="bg-orange-400 text-white">
                 <th scope="col" class="px-6 py-3 uppercase">
                     {{__('id')}}
@@ -35,15 +35,15 @@
             <tbody>
             @foreach ($questions as $question)
                 <tr class="bg-orange-50 hover:bg-orange-100 text-center">
-                    <th scope="row" class="px-6 py-4">
+                    <th scope="row" class="px-6 py-3 uppercase">
                         {{ $question->id }}
                     </th>
-                    <th scope="row" class="px-6 py-4">
+                    <td scope="row" class="px-6 py-4">
                         {{ $question->name }}
-                    </th>
-                    <th class="px-6 py-4">
+                    </td>
+                    <td class="px-6 py-4">
                         {{ $question->description }}
-                    </th>
+                    </td>
                     <th class="flex items-center px-6 py-4 space-x-3">
                         <x-button-edit href="{{route('question.edit', $question)}}" >
                             <i class="fa-regular fa-pen-to-square "></i>
@@ -56,17 +56,13 @@
             @endforeach
 
     <!-- This example requires Tailwind CSS v2.0+ -->
-   
+
             </tbody>
         </table>
 
-        <div class="p-3 text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <div class="row">
-                <div class="col-12">
-                    {{ $questions->links() }}
-                </div>
-            </div>
-        </div>
+        {{-- <div class="flex justify-center mt-4">
+            {{ $questions->links('vendor.pagination.tailwind') }}
+        </div> --}}
     </div>
 
 @endsection
