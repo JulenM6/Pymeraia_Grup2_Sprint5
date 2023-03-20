@@ -146,3 +146,12 @@ class MyApp (MDApp):
 
 myapp = MyApp()
 myapp.run()
+
+# response = requests.get('http://localhost/api/kivy/json')
+#     # Procesar la respuesta
+#     if response.status_code == 200:
+#         data = response.json()
+#         self.ids.name.text = data['name'] 
+#         self.ids.name1.text = data['autor']
+#     else:
+#         print("You don't have access")
