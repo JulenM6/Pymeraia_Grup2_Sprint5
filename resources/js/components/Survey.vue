@@ -60,12 +60,12 @@
                         <div class="row">
                             <div class="col-12">
                                 <nav role="navigation" aria-label="Pagination Navigation" class="flex justify-between">
-                                    <button
+                                    <button type="text"
                                         class="relative inline-flex items-center px-4 py-2 font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
                                         :class="{ 'opacity-50 cursor-not-allowed': currentPage === 1 }"
                                         :disabled="currentPage === 1" @click="currentPage--">&laquo; {{
                                             $t('pagination.previous') }}</button>
-                                    <button
+                                    <button type="text"
                                         class="relative inline-flex items-center px-4 py-2 font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
                                         :class="{ 'opacity-50 cursor-not-allowed': currentPage === pageCount }"
                                         :disabled="currentPage === pageCount" @click="currentPage++">{{
