@@ -39,7 +39,7 @@
                             {{ $audit->questionnaire->name }}
                         </td>
                         <td class="px-6 py-4 font-medium text-gray-900">
-                            {{ $audit->date }}
+                            {{ date('d-m-Y', strtotime($audit->date))  }}
                         </td>
                         <td class="px-6 py-4 font-medium text-gray-900">
                             <a href="{{ route('audit.survey', [$audit->id]) }}"

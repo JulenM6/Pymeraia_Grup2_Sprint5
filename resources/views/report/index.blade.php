@@ -32,7 +32,7 @@
                             {{ $report->name }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $report->date }}
+                            {{ date('d-m-Y', strtotime($report->date)) }}
                         </td>
                         <td class="px-6 py-4">
                             <a href="{{ route('report.show', [$report->id]) }}"

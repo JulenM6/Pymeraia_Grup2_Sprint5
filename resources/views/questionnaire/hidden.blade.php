@@ -42,10 +42,10 @@
                     {{ $questionnaire->autor }}
                 </td>
                 <td class="px-6 py-4">
-                    {{ $questionnaire->date }}
+                    {{ date('d-m-Y', strtotime($questionnaire->date)) }}
                 </td>
                 <td class="px-6 py-4">
-                    {{ $questionnaire->hidden }}
+                    {{ date('d-m-Y', strtotime($questionnaire->hidden)) }}
                 </td>
                 <td class="flex items-center px-6 py-4 space-x-3">
                     <x-button-edit href="{{route('questionnaire.edit', $questionnaire)}}">
