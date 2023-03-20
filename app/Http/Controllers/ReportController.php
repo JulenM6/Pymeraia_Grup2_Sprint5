@@ -64,9 +64,20 @@ class ReportController extends Controller
     {
         // crear un report (desde la vista auditorías)
         $report = new Report();
-        $report->name = $request->input('reportName');
-        $report->questionnaire_id = $request->input('selectedQuestionnaire');
-        $report->user_id = $request->input('selectedUser');
+
+        // validar datos
+        $validated = $request->validate([
+            'reportName' => 'required|string|max:50',
+            'selectedQuestionnaire' => 'required|integer',
+            'selectedUser' => 'required|integer'
+        ]);
+        $reportName = $validated['reportName'];
+        $selectedQuestionnaire = $validated['selectedQuestionnaire'];
+        $selectedUser = $validated['selectedUser'];
+
+        $report->name = $reportName;
+        $report->questionnaire_id = $selectedQuestionnaire;
+        $report->user_id = $selectedUser;
         $report->date = date('Y-m-d');
         $report->status = "pending";
 

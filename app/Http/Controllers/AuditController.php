@@ -41,7 +41,13 @@ class AuditController extends Controller
     public function store(Request $request, $id)
     {
         $survey = Report::find($id);
-        $answers = $request->input('answerIds');
+
+        // validar datos
+        $validated = $request->validate([
+            'answerIds' => 'required|array',
+            'answerIds.*' => 'required|integer',
+        ]);
+        $answers = $validated['answerIds'];
         /* sync elimina antiguos valores y les mete los del array
            pasado por axios a la pivot table 'answer_report */
         $survey->answers()->detach();
