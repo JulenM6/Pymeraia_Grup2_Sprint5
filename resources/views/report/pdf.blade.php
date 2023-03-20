@@ -48,20 +48,21 @@
 
     <footer class="bg-gray-900 py-8">
         <div>
-          <div class="text-white">
-              {{-- <img src="{{ public_path('img/logo_pymeshield_black.png') }}" alt="Logo" class="w-16"> --}}
-          </div>
-          <div class="text-white">
-            <h6 class="font-bold text-lg">{{ __('footer.contact') }}</h6>
-            <ul class="mt-4">
-              <li><a href="tel:682849274" class="text-lg">682849274</a></li>
-              <li><a href="mailto:support@pymeshield.com" class="text-lg">info@pymeshield.com</a></li>
-            </ul>
-          </div>
+            <div class="text-white">
+                {{-- <img src="{{ public_path('img/logo_pymeshield_black.png') }}" alt="Logo" class="w-16"> --}}
+            </div>
+            <div class="text-white">
+                <h6 class="font-bold text-lg">{{ __('footer.contact') }}</h6>
+                <ul class="mt-4">
+                    <li><a href="tel:682849274" class="text-lg">682849274</a></li>
+                    <li><a href="mailto:support@pymeshield.com" class="text-lg">info@pymeshield.com</a></li>
+                </ul>
+            </div>
         </div>
-      </footer>
+    </footer>
 
 </body>
 
 </html>
+
 </html>
