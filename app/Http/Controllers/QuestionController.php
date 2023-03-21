@@ -206,4 +206,11 @@ class QuestionController extends Controller
 
         return redirect()->route('question.hidden');
     }
+    function indexmobil (){ 
+        return Question::all();
+    }
+    function indexmobilID ($id){ 
+        return Question::find($id);
+    }
+
 }

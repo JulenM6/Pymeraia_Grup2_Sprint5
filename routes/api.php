@@ -32,3 +32,7 @@ Route::get('kivy/json/{id}/', [QuestionnaireController::class, 'indexmobilID']);
 Route::get('kivy/report', [ReportController::class, 'indexmobil']);
 
 Route::get('kivy/report/{id}/', [ReportController::class, 'indexmobilID']);
+
+Route::get('kivy/question', [QuestionController::class, 'indexmobil']);
+
+Route::get('kivy/question/{id}/', [QuestionController::class, 'indexmobilID']);

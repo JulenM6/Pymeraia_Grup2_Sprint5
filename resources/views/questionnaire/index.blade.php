@@ -50,10 +50,10 @@
                         {{ date('d-m-Y', strtotime($questionnaire->date)) }}
                     </td>
                     <td class="flex items-center px-6 py-4 space-x-3">
-                        <x-button-edit href="{{route('questionnaire.edit', $questionnaire)}}">
+                        <x-button-edit href="{{route('questionnaire.edit', $questionnaire)}}" aria-label="edit button">
                             <i class="fa-regular fa-pen-to-square"></i>
                         </x-button-edit>
-                        <x-button-unactivate href="{{route('questionnaire.unActivate', $questionnaire)}}">
+                        <x-button-unactivate href="{{route('questionnaire.unActivate', $questionnaire)}}" aria-label="hidden button">
                             <i class="fa-solid fa-arrow-down"></i>
                         </x-button-unactivate>
                     </td>
