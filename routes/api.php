@@ -38,11 +38,6 @@ Route::middleware('auth:sanctum')->get('/loginPhone', function (Request $request
     return $request->user();
 });
 
-// para que vaya la kivy app
-Route::middleware('auth:sanctum')->get('/loginPhone', function (Request $request) {
-    return $request->user();
-});
-
 Route::get('kivy/question', [QuestionController::class, 'indexmobil']);
 
 Route::get('kivy/question/{id}/', [QuestionController::class, 'indexmobilID']);
