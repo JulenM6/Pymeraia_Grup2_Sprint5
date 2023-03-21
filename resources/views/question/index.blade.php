@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class=" max-w-4xl mx-auto flex items-center pt-4 justify-between ">
+<div class="m-5 flex items-center pt-4 justify-between ">
         <div>
             <x-button-link href="{{route('question.create')}}">
                 <i class="fa-solid fa-plus mr-2"></i>
