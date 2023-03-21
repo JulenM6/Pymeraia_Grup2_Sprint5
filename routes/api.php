@@ -32,3 +32,8 @@ Route::get('kivy/json/{id}/', [QuestionnaireController::class, 'indexmobilID']);
 Route::get('kivy/report', [ReportController::class, 'indexmobil']);
 
 Route::get('kivy/report/{id}/', [ReportController::class, 'indexmobilID']);
+
+// para que vaya la kivy app
+Route::middleware('auth:sanctum')->get('/loginPhone', function (Request $request) {
+    return $request->user();
+});
