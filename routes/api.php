@@ -33,6 +33,16 @@ Route::get('kivy/report', [ReportController::class, 'indexmobil']);
 
 Route::get('kivy/report/{id}/', [ReportController::class, 'indexmobilID']);
 
+// para que vaya la kivy app
+Route::middleware('auth:sanctum')->get('/loginPhone', function (Request $request) {
+    return $request->user();
+});
+
+// para que vaya la kivy app
+Route::middleware('auth:sanctum')->get('/loginPhone', function (Request $request) {
+    return $request->user();
+});
+
 Route::get('kivy/question', [QuestionController::class, 'indexmobil']);
 
 Route::get('kivy/question/{id}/', [QuestionController::class, 'indexmobilID']);

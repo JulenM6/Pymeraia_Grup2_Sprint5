@@ -17,7 +17,10 @@ class ReportController extends Controller
         //pagina principal de informes mostra llistat informes (solo sin completar)
         $reports = Report::where('status', 'done')->orderBy('date', 'desc')->paginate(10);
 
-        return view('report.index', compact('reports'));
+        $questionnaires = Questionnaire::all();
+        $users = User::all();
+
+        return view('report.index', compact('reports', 'questionnaires', 'users'));
     }
     //acció
     public function show($id)
@@ -87,10 +90,10 @@ class ReportController extends Controller
             'redirect' => route('audit.index')
         ]);
     }
-    function indexmobil (){ 
+    function indexmobil (){
         return Report::all();
     }
-    function indexmobilID ($id){ 
+    function indexmobilID ($id){
         return Report::find($id);
     }
 }

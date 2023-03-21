@@ -20,11 +20,7 @@ class AuditController extends Controller
             ->with('questionnaire')
             ->Paginate(10);
 
-
-        $questionnaires = Questionnaire::all();
-        $users = User::all();
-
-        return view('audit.index', compact('audits', 'questionnaires', 'users'));
+        return view('audit.index', compact('audits'));
     }
 
     public function show($id)
