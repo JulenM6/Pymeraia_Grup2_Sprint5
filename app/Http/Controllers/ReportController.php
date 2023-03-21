@@ -15,7 +15,9 @@ class ReportController extends Controller
     public function index()
     {
         //pagina principal de informes mostra llistat informes (solo sin completar)
-        $reports = Report::where('status', 'done')->orderBy('date', 'desc')->paginate(10);
+        $reports = Report::orderBy('status', 'asc')
+        ->orderBy('date', 'desc')
+        ->paginate(10);
 
         $questionnaires = Questionnaire::all();
         $users = User::all();

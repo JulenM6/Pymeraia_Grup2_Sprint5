@@ -14,6 +14,9 @@
                         {{ __('table.name') }}
                     </th>
                     <th scope="col" class="px-6 py-3 uppercase">
+                        {{ __('table.status') }}
+                    </th>
+                    <th scope="col" class="px-6 py-3 uppercase">
                         {{ __('table.date') }}
                     </th>
                     <th scope="col" class="px-6 py-3 uppercase">
@@ -31,6 +34,9 @@
                         </th>
                         <td class="px-6 py-4">
                             {{ $report->name }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $report->status }}
                         </td>
                         <td class="px-6 py-4">
                             {{ date('d-m-Y', strtotime($report->date)) }}
