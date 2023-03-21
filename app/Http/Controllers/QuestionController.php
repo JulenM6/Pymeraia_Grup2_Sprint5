@@ -21,7 +21,7 @@ class QuestionController extends Controller
         $questions = Question::where('hidden', false)
             ->orderBy('id', 'desc')
             ->orWhereNull('hidden')
-            ->simplePaginate(10);
+            ->Paginate(10);
 
         return view('question.index', compact('questions'));
     }
