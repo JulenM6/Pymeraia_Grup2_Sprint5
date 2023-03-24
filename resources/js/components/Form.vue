@@ -13,7 +13,7 @@
                         </div>
                         <div>
                             <input
-                                class=" block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                class="my-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                                 type="text"
                                 name="question"
                                 id="question"
@@ -30,7 +30,7 @@
                         </div>
                         <div>
                             <input
-                                class=" block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                class="my-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                                 type="text"
                                 name="description"
                                 id="description"
@@ -49,7 +49,7 @@
                         </div>
                         <div>
                             <input
-                                class=" block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                class="my-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                                 type="text"
                                 name="recommendation_true"
                                 id="recommendation_true"
@@ -68,7 +68,7 @@
                         <select id="risk_true"
                                 name="risk_true"
                                 v-model="risk_true"
-                                class="rounded-md shadow-sm border-gray-300 block mt-1 w-full focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                class="my-2 block w-full rounded-md border-0 bg-white py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6">
                             <option value="" selected>Elige una Opción</option>
                             <option v-for="risk in risks" :value="risk.id"
                                     :key="risk.id">{{ risk.name }}
@@ -84,7 +84,7 @@
                         <select id="intervention_true"
                                 name="intervention_true"
                                 v-model="intervention_true"
-                                class="rounded-md shadow-sm border-gray-300 block mt-1 w-full focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                class="my-2 block w-full rounded-md border-0 bg-white py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6">
                             <option value="" selected>Elige una Opción</option>
                             <option v-for="intervention in interventions" :value="intervention.id"
                                     :key="intervention.id">{{ intervention.name }}
@@ -100,7 +100,7 @@
                         <select id="measure_true"
                                 name="measure_true"
                                 v-model="measure_true"
-                                class="rounded-md shadow-sm border-gray-300 block mt-1 w-full focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                class="my-2 block w-full rounded-md border-0 bg-white py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6">
                             <option value="" selected>Elige una Opción</option>
                             <option v-for="type_measure in type_measures" :value="type_measure.id"
                                     :key="type_measure.id">{{ type_measure.name }}
@@ -116,7 +116,7 @@
                         <select id="probability_true"
                                 name="probability_true"
                                 v-model="probability_true"
-                                class="rounded-md shadow-sm border-gray-300 block mt-1 w-full focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                class="my-2 block w-full rounded-md border-0 bg-white py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6">
                             <option value="" selected>Elige una Opción</option>
                             <option v-for="probability in probabilities" :value="probability.id"
                                     :key="probability.id">{{ probability.name }}
@@ -132,7 +132,7 @@
                         <select id="impact_true"
                                 name="impact_true"
                                 v-model="impact_true"
-                                class="rounded-md shadow-sm border-gray-300 block mt-1 w-full focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                class="my-2 block w-full rounded-md border-0 bg-white py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6">
                             <option value="" selected>Elige una Opción</option>
                             <option v-for="impact in impacts" :value="impact.id"
                                     :key="impact.id">{{ impact.name }}
@@ -150,7 +150,7 @@
                         </div>
                         <div>
                             <input
-                                class=" block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                class="my-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                                 type="text"
                                 name="recommendation_false"
                                 id="recommendation_false"
@@ -168,7 +168,7 @@
                         <select id="risk_false"
                                 name="risk_false"
                                 v-model="risk_false"
-                                class="rounded-md shadow-sm border-gray-300 block mt-1 w-full focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                class="my-2 block w-full rounded-md border-0 bg-white py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6">
                             <option value="" selected>Elige una Opción</option>
                             <option v-for="risk in risks" :value="risk.id"
                                     :key="risk.id">{{ risk.name }}
@@ -184,7 +184,7 @@
                         <select id="intervention_false"
                                 name="intervention_false"
                                 v-model="intervention_false"
-                                class="rounded-md shadow-sm border-gray-300 block mt-1 w-full focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                class="my-2 block w-full rounded-md border-0 bg-white py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6">
                             <option value="" selected>Elige una Opción</option>
                             <option v-for="intervention in interventions" :value="intervention.id"
                                     :key="intervention.id">{{ intervention.name }}
@@ -200,7 +200,7 @@
                         <select id="measure_false"
                                 name="measure_false"
                                 v-model="measure_false"
-                                class="rounded-md shadow-sm border-gray-300 block mt-1 w-full focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                class="my-2 block w-full rounded-md border-0 bg-white py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6">
                             <option value="" selected>Elige una Opción</option>
                             <option v-for="type_measure in type_measures" :value="type_measure.id"
                                     :key="type_measure.id">{{ type_measure.name }}
@@ -216,7 +216,7 @@
                         <select id="probability_false"
                                 name="probability_false"
                                 v-model="probability_false"
-                                class="rounded-md shadow-sm border-gray-300 block mt-1 w-full focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                class="my-2 block w-full rounded-md border-0 bg-white py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6">
                             <option value="" selected>Elige una Opción</option>
                             <option v-for="probability in probabilities" :value="probability.id"
                                     :key="probability.id">{{ probability.name }}
@@ -232,7 +232,7 @@
                         <select id="impact_false"
                                 name="impact_false"
                                 v-model="impact_false"
-                                class="rounded-md shadow-sm border-gray-300 block mt-1 w-full focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                class="my-2 block w-full rounded-md border-0 bg-white py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6">
                             <option value="" selected>Elige una Opción</option>
                             <option v-for="impact in impacts" :value="impact.id"
                                     :key="impact.id">{{ impact.name }}
@@ -249,7 +249,7 @@
                 <div>
                     <div class="flex justify-center">
                         <button
-                            class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-600 active:bg-gray-900 dark:hover:bg-gray-600 dark:active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150"
+                            class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded mt-5 items-center"
                             type="submit" value="Save" v-bind:disabled="sending" >Enviar
                         </button>
                     </div>
