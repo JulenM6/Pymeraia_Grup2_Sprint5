@@ -12,7 +12,7 @@ class QuestionnaireController extends Controller
     {
         $questionnaires = Questionnaire::where('hidden', false)
             ->orWhereNull('hidden')
-            ->simplePaginate(10);
+            ->Paginate(10);
 
         return view('questionnaire.index', compact('questionnaires'));
     }
@@ -20,7 +20,7 @@ class QuestionnaireController extends Controller
     public function hidden()
     {
         $questionnaires = Questionnaire::whereNotNull('hidden')
-            ->simplePaginate(10);
+            ->Paginate(10);
 
         return view('questionnaire.hidden', compact('questionnaires'));
     }
@@ -124,10 +124,10 @@ class QuestionnaireController extends Controller
 
         return redirect()->back();
     }
-    function indexmobil (){ 
+    function indexmobil (){
         return Questionnaire::all();
     }
-    function indexmobilID ($id){ 
+    function indexmobilID ($id){
         return Questionnaire::find($id);
     }
 }

@@ -5,10 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
-        integrity="sha512-fEbbx62zKbG2tvw3qPb3Itb0Nl1hdjKbW8qzv9Mwea7pzF1HzsDd7VvKebt97J7tG/DiQKzI8vGdQVDz7fJrLg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Informe </title>
+    @vite('resources/css/app.css')
 </head>
 
 <body>
@@ -29,17 +27,17 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($report as $row)
+                @foreach ($report->answers as $answer)
                     <tr>
-                        <th scope="row">{{ $row->id }}</th>
-                        <td class="px-6 py-4">{{ $row->answers }}</td>
-                        <td class="px-6 py-4">{{ $row->recommendation }}</td>
-                        <td class="px-6 py-4">{{ $row->questions }}</td>
-                        <td class="px-6 py-4">{{ $row->type_measures }}</td>
-                        <td class="px-6 py-4">{{ $row->risks }}</td>
-                        <td class="px-6 py-4">{{ $row->probabilities }}</td>
-                        <td class="px-6 py-4">{{ $row->interventions }}</td>
-                        <td class="px-6 py-4">{{ $row->impacts }}</td>
+                        <th scope="row">{{ $answer->id }}</th>
+                        <td class="px-6 py-4">{{ $answer->name }}</td>
+                        <td class="px-6 py-4">{{ $answer->recommendation }}</td>
+                        <td class="px-6 py-4">{{ $answer->question->name }}</td>
+                        <td class="px-6 py-4">{{ $answer->typeMeasure->name }}</td>
+                        <td class="px-6 py-4">{{ $answer->risk->name }}</td>
+                        <td class="px-6 py-4">{{ $answer->probability->name }}</td>
+                        <td class="px-6 py-4">{{ $answer->intervention->name }}</td>
+                        <td class="px-6 py-4">{{ $answer->impact->name }}</td>
                     </tr>
                 @endforeach
             </tbody>
@@ -55,15 +53,14 @@
                 <h6 class="font-bold text-lg ">{{ __('footer.contact') }}</h6>
                 <ul class="mt-4 ">
                     <li><a href="tel:682849274" class="text-lg">682849274</a>
-                    &nbsp;&nbsp;&nbsp;&nbsp; 
-                    <a href="mailto:support@pymeshield.com" class="text-lg">info@pymeshield.com</a></li>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="mailto:support@pymeshield.com" class="text-lg">info@pymeshield.com</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </footer>
 
 </body>
-
-</html>
 
 </html>

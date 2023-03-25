@@ -16,7 +16,7 @@ class AuditController extends Controller
         /* Página con los cuestionarios por responder, luego habría que filtrar
         por usuario/empresa cuando los grupos estén unificados */
         $audits = Report::where('status', 'pending')
-            ->orderBy('id')
+            ->orderBy('created_at', 'desc')
             ->with('questionnaire')
             ->Paginate(10);
 

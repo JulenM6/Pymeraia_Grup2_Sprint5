@@ -1,12 +1,12 @@
 <template>
-     <div class=" max-w-xl mx-auto sm:px-6 my-5 lg:px-8 bg-slate-200 rounded-lg py-2">
+     <div class="max-w-xl sm:mx-auto m-5 ring-1 ring-gray-200 bg-white rounded-lg">
         <form action="" id="questionnaire-form" method="POST" v-on:submit.prevent="saveTask()">
             <div hidden>
                 @csrf
             </div>
 
             <div class="grid gap-6 my-6">
-                <div class="flex justify-center">
+                <div class="flex justify-center mt-5">
                     <div class="w-10/12">
                         <div>
                             <label class="block font-medium text-label text-gray-700" for="question">{{ $t('question') }}</label>
@@ -40,7 +40,7 @@
                     </div>
                 </div>
 
-            <details>
+            <details class="pl-4">
                 <summary>Respuesta Afirmativa</summary>
                 <div class="flex justify-center">
                     <div class="w-10/12">
@@ -141,7 +141,7 @@
                     </div>
                 </div>
             </details>
-            <details>
+            <details class="pl-4">
                 <summary>Respuesta Negativa</summary>
                 <div class="flex justify-center">
                     <div class="w-10/12">
@@ -246,10 +246,10 @@
 
 
 
-                <div>
+                <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 rounded-b-lg">
                     <div class="flex justify-center">
                         <button
-                            class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded mt-5 items-center"
+                            class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded items-center"
                             type="submit" value="Save" v-bind:disabled="sending" >Enviar
                         </button>
                     </div>

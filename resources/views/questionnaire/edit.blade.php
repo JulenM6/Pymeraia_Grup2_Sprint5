@@ -1,18 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="max-w-screen-2xl mx-auto  py-3  rounded-lg sm:px-6 lg:px-8">
+    <div class="py-3 rounded-lg sm:px-6 lg:px-8">
 
 
 
-        <div class="max-w-7xl pb-3 overflow-hidden mx-auto sm:rounded-lg">
+        <div class="pb-3 sm:rounded-lg">
             <x-button-link
                 href="{{ $questionnaire->hidden != null ? route('questionnaire.hidden') : route('questionnaire.index') }}">
                 <i class="fa-solid fa-arrow-left">Volver</i>
             </x-button-link>
         </div>
 
-        <div class="max-w-7xl px-3 pt-2 overflow-hidden mx-auto sm:rounded-lg bg-slate-200">
+        <div class="max-w-7xl sm:mx-auto m-5 ring-1 ring-gray-200 bg-white rounded-lg p-5">
 
 
             <x-success-status class="mb-4" :status="session('message')" />
@@ -24,7 +24,7 @@
                 @if ($questionnaire->hidden != null)
                     <div class="grid mx-auto mb-3 md:grid-cols-5">
                     @else
-                        <div class="grid mx-auto mb-3 md:grid-cols-4">
+                        <div class="grid mx-auto mb-3 md:grid-cols-4 md:space-x-3">
                 @endif
                 <div>
                     <x-input-label for="name" :value="__('questionnaire.name')" />
@@ -70,9 +70,8 @@
     </div>
     </form>
     </div>
-    </div>
 
-    <div class="overflow-x-auto max-w-7xl mx-auto  sm:rounded-lg m-5">
+    <div class="sm:rounded-lg m-5">
         <div class="flex items-center justify-end">
             <x-button-link href="{{ route('answer.create') }}">
                 {{ __('add.answer') }}
@@ -80,9 +79,8 @@
         </div>
     </div>
 
-    <div class="columns-2 max-w-screen-xl mx-auto">
-        <div
-            class="overflow-x-auto max-w-3xl mx-auto shadow-md sm:rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-gray-500">
+    <div class="columns-1 sm:columns-2 m-5">
+        <div class="overflow-x-auto shadow-md sm:rounded-lg bg-orange-400">
             <form action="{{ route('questionnaire.assignQuestion', $questionnaire) }}" method="POST">
                 @csrf
 
@@ -96,40 +94,38 @@
                         </x-button-check>
                     </div>
                 </div>
-                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
+                <table class="table-auto w-full shadow-lg rounded-lg">
+                    <thead>
+                        <tr class="bg-orange-400 text-white">
                             <th scope="col" class="p-4">
                                 <div class="flex items-center">
                                     <input id="checkbox-all-search" name="" type="checkbox"
                                         onclick='checkUncheckAssign(this)'
-                                        class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                        class="w-4 h-4 text-orange-600 bg-gray-100 rounded border-gray-300 focus:ring-orange-500 dark:focus:ring-orange-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                     <label for="checkbox-all-search" class="sr-only">checkbox</label>
                                 </div>
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            <th scope="col" class="px-6 py-3 uppercase">
                                 {{ __('question.name') }}
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            <th scope="col" class="px-6 py-3 uppercase">
                                 {{ __('question.description') }}
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($unassigned_questions as $question)
-                            <tr
-                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                            <tr class="bg-orange-50 hover:bg-orange-100 text-center">
                                 <td class="p-4 w-4">
                                     <div class="flex items-center">
 
                                         <input type="checkbox" id="question-assign-{{ $question->id }}"
                                             value="{{ $question->id }}" name="id[{{ $question->id }}]"
-                                            class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                            class="w-4 h-4 text-orange-600 bg-gray-100 rounded border-gray-300 focus:ring-orange-500 dark:focus:ring-orange-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                         <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                                     </div>
                                 </td>
-                                <th scope="row"
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <th scope="row" class="px-6 py-3 uppercase">
                                     {{ $question->name }}
                                 </th>
                                 <td class="px-6 py-4">
@@ -141,8 +137,7 @@
                 </table>
             </form>
         </div>
-        <div
-            class="overflow-x-auto max-w-3xl mx-auto shadow-md sm:rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-gray-500">
+        <div class="overflow-x-auto shadow-md sm:rounded-lg bg-orange-400">
             <form action="{{ route('questionnaire.unassignQuestion', $questionnaire) }}" method="POST">
                 @csrf
 
@@ -156,21 +151,21 @@
                         </x-button-check>
                     </div>
                 </div>
-                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
+                <table class="table-auto w-full shadow-lg rounded-lg">
+                    <thead>
+                        <tr class="bg-orange-400 text-white">
                             <th scope="col" class="p-4">
                                 <div class="flex items-center">
                                     <input id="checkbox-all-search" name="" type="checkbox"
                                         onclick='checkUncheckUnAssign(this)'
-                                        class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                        class="w-4 h-4 text-orange-600 bg-gray-100 rounded border-gray-300 focus:ring-orange-500 dark:focus:ring-orange-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                     <label for="checkbox-all-search" class="sr-only">checkbox</label>
                                 </div>
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            <th scope="col" class="px-6 py-3 uppercase">
                                 {{ __('question.name') }}
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            <th scope="col" class="px-6 py-3 uppercase">
                                 {{ __('question.description') }}
                             </th>
                         </tr>
@@ -179,18 +174,18 @@
                         @foreach ($assigned_questions as $question)
                             @php($condition1 = $questionnaire->questions->where('id', $question->id)->isNotEmpty())
                             <tr
-                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                class="bg-orange-50 hover:bg-orange-100 text-center">
                                 <td class="p-4 w-4">
                                     <div class="flex items-center">
 
                                         <input type="checkbox" id="question-unAssign-{{ $question->id }}"
                                             value="{{ $question->id }}" name="id[{{ $question->id }}]"
-                                            class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                            class="w-4 h-4 text-orange-600 bg-gray-100 rounded border-gray-300 focus:ring-orange-500 dark:focus:ring-orange-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                         <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                                     </div>
                                 </td>
                                 <th scope="row"
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    class="px-6 py-3 uppercase">
                                     {{ $question->name }}
                                 </th>
                                 <td class="px-6 py-4">
