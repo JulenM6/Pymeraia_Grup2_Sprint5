@@ -37,7 +37,7 @@
                             {{ $report->name }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $report->status }}
+                            {{ __('report.' . $report->status) }}
                         </td>
                         <td class="px-6 py-4">
                             {{ date('d-m-Y', strtotime($report->date)) }}
