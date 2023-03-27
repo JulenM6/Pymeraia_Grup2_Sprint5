@@ -37,6 +37,8 @@
     "report.probability": "Probability",
     "report.intervention": "Intervention",
     "report.impact": "Impact",
+    "report.pending": "Pending",
+    "report.done": "Done",
     "footer.by": "© pymeshield by Pymeralia",
     "footer.about": "About Pymeralia",
     "footer.privacy": "Privacy Policy",

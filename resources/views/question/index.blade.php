@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="m-5 flex items-center pt-4 justify-between ">
+    <div class="m-5 flex items-center pt-4 justify-between space-x-3">
         <div>
             <x-button-link href="{{ route('question.create') }}">
                 <i class="fa-solid fa-plus mr-2"></i>
@@ -44,12 +44,12 @@
                         <td class="px-6 py-4">
                             {{ $question->description }}
                         </td>
-                        <th class="flex items-center px-6 py-4 space-x-3">
-                            <a class="bg-blue-500 hover:bg-blue-700  text-white font-bold py-2 px-2 ml-2 rounded"
+                        <th class="flex items-center justify-center px-6 py-4 space-x-3">
+                            <a class="bg-blue-500 hover:bg-blue-700  text-white font-bold py-2 px-3 ml-2 rounded"
                                 href="{{ route('question.edit', $question) }}">
                                 <i class="fa-regular fa-pen-to-square "></i>
                             </a>
-                            <a class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 ml-2 rounded "
+                            <a class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-3 ml-2 rounded "
                                 href="{{ route('question.unActivate', $question) }}">
                                 <i class="fa-regular fa-trash-can"></i>
                             </a>
@@ -62,7 +62,7 @@
             </tbody>
         </table>
 
-        <div class="flex justify-center mt-4">
+        <div class="flex justify-center">
             {{ $questions->links('vendor.pagination.tailwind') }}
         </div>
     </div>

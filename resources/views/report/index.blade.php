@@ -20,6 +20,7 @@
                         {{ __('table.date') }}
                     </th>
                     <th scope="col" class="px-6 py-3 uppercase">
+                        {{__('actions')}}
                     </th>
 
 
@@ -36,7 +37,7 @@
                             {{ $report->name }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $report->status }}
+                            {{ __('report.' . $report->status) }}
                         </td>
                         <td class="px-6 py-4">
                             {{ date('d-m-Y', strtotime($report->date)) }}
@@ -50,7 +51,7 @@
             </tbody>
         </table>
         <!-- Paginación -->
-        <div class="flex justify-center mt-4">
+        <div class="flex justify-center">
             {{ $reports->links('vendor.pagination.tailwind') }}
         </div>
     </div>

@@ -30,7 +30,7 @@ class QuestionController extends Controller
     {
         //pagina principal de informes mostra llistat informes
 
-        $questions = Question::whereNotNull('hidden')->simplePaginate(10);
+        $questions = Question::whereNotNull('hidden')->Paginate(10);
 
         return view('question.hidden', compact('questions'));
     }
@@ -206,10 +206,10 @@ class QuestionController extends Controller
 
         return redirect()->route('question.hidden');
     }
-    function indexmobil (){ 
+    function indexmobil (){
         return Question::all();
     }
-    function indexmobilID ($id){ 
+    function indexmobilID ($id){
         return Question::find($id);
     }
 

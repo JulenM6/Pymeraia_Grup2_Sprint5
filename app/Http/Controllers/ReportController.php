@@ -16,8 +16,8 @@ class ReportController extends Controller
     {
         //pagina principal de informes mostra llistat informes (solo sin completar)
         $reports = Report::orderBy('status', 'asc')
-        ->orderBy('date', 'desc')
-        ->paginate(10);
+            ->orderBy('updated_at', 'desc')
+            ->paginate(10);
 
         $questionnaires = Questionnaire::all();
         $users = User::all();
@@ -47,19 +47,8 @@ class ReportController extends Controller
     public function pdf($id)
     {
 
-        $report = DB::table('reports')
-            ->select('answers.id', 'answers.name as answers', 'answers.recommendation as recommendation', 'questions.name as questions', 'type_measures.name as type_measures', 'risks.name as risks', 'probabilities.name as probabilities', 'interventions.name as interventions', 'impacts.name as impacts')
-            ->join('answer_report', 'answer_report.report_id', '=', 'reports.id')
-            ->join('answers', 'answer_report.answer_id', '=', 'answers.id')
-            ->join('impacts', 'impacts.id', '=', 'answers.impact_id')
-            ->join('interventions', 'interventions.id', '=', 'answers.intervention_id')
-            ->join('probabilities', 'probabilities.id', '=', 'answers.probability_id')
-            ->join('questions', 'questions.id', '=', 'answers.question_id')
-            ->join('risks', 'risks.id', '=', 'answers.risk_id')
-            ->join('type_measures', 'type_measures.id', '=', 'answers.type_measure_id')
-            ->where('reports.id', '=', $id)
-            ->get();
-
+        $report = Report::with(['answers', 'answers.impact', 'answers.intervention', 'answers.probability', 'answers.question', 'answers.risk', 'answers.typeMeasure'])
+            ->findOrFail($id);
 
         $pdf = PDF::loadView('report.pdf', compact('report'))->setPaper('legal', 'landscape');
         return $pdf->stream();
@@ -92,10 +81,12 @@ class ReportController extends Controller
             'redirect' => route('audit.index')
         ]);
     }
-    function indexmobil (){
+    function indexmobil()
+    {
         return Report::all();
     }
-    function indexmobilID ($id){
+    function indexmobilID($id)
+    {
         return Report::find($id);
     }
 }
