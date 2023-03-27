@@ -26,7 +26,7 @@
                 <div class="flex justify-center">
                     <div class="w-10/12">
                         <div>
-                            <label class="block font-medium text-label text-gray-700" for="description">Descripcion</label>
+                            <label class="block font-medium text-label text-gray-700" for="description">{{ $t('question.description') }}</label>
                         </div>
                         <div>
                             <input
@@ -41,11 +41,11 @@
                 </div>
 
             <details class="pl-4">
-                <summary>Respuesta Afirmativa</summary>
+                <summary>{{ $t('answer.true') }}</summary>
                 <div class="flex justify-center">
                     <div class="w-10/12">
                         <div>
-                            <label class="block font-medium text-label text-gray-700" for="recommendation_true">Recomendacion TRUE</label>
+                            <label class="block font-medium text-label text-gray-700" for="recommendation_true">{{ $t('answer.reco') }}</label>
                         </div>
                         <div>
                             <input
@@ -63,13 +63,13 @@
                 <div class="flex justify-center">
                     <div class="w-10/12">
                         <div>
-                            <label class="block font-medium text-label text-gray-700" for="risk_true">Riesgo TRUE</label>
+                            <label class="block font-medium text-label text-gray-700" for="risk_true">{{ $t('answer.risk') }}</label>
                         </div>
                         <select id="risk_true"
                                 name="risk_true"
                                 v-model="risk_true"
                                 class="my-2 block w-full rounded-md border-0 bg-white py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6">
-                            <option value="" selected>Elige una Opción</option>
+                            <option value="" selected>{{ $t('messages.option') }}</option>
                             <option v-for="risk in risks" :value="risk.id"
                                     :key="risk.id">{{ risk.name }}
                             </option>
@@ -79,13 +79,13 @@
                 <div class="flex justify-center">
                     <div class="w-10/12">
                         <div>
-                            <label class="block font-medium text-label text-gray-700" for="intervention_true">Intervencion TRUE</label>
+                            <label class="block font-medium text-label text-gray-700" for="intervention_true">{{ $t('answer.inter') }}</label>
                         </div>
                         <select id="intervention_true"
                                 name="intervention_true"
                                 v-model="intervention_true"
                                 class="my-2 block w-full rounded-md border-0 bg-white py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6">
-                            <option value="" selected>Elige una Opción</option>
+                            <option value="" selected>{{ $t('messages.option') }}</option>
                             <option v-for="intervention in interventions" :value="intervention.id"
                                     :key="intervention.id">{{ intervention.name }}
                             </option>
@@ -95,13 +95,13 @@
                 <div class="flex justify-center">
                     <div class="w-10/12">
                         <div>
-                            <label class="block font-medium text-label text-gray-700" for="measure_true">Tipo de medida TRUE</label>
+                            <label class="block font-medium text-label text-gray-700" for="measure_true">{{ $t('answer.type') }}</label>
                         </div>
                         <select id="measure_true"
                                 name="measure_true"
                                 v-model="measure_true"
                                 class="my-2 block w-full rounded-md border-0 bg-white py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6">
-                            <option value="" selected>Elige una Opción</option>
+                            <option value="" selected>{{ $t('messages.option') }}</option>
                             <option v-for="type_measure in type_measures" :value="type_measure.id"
                                     :key="type_measure.id">{{ type_measure.name }}
                             </option>
@@ -111,13 +111,13 @@
                 <div class="flex justify-center">
                     <div class="w-10/12">
                         <div>
-                            <label class="block font-medium text-label text-gray-700" for="probability_true">Probabilidad TRUE</label>
+                            <label class="block font-medium text-label text-gray-700" for="probability_true">{{ $t('answer.prob') }}</label>
                         </div>
                         <select id="probability_true"
                                 name="probability_true"
                                 v-model="probability_true"
                                 class="my-2 block w-full rounded-md border-0 bg-white py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6">
-                            <option value="" selected>Elige una Opción</option>
+                            <option value="" selected>{{ $t('messages.option') }}</option>
                             <option v-for="probability in probabilities" :value="probability.id"
                                     :key="probability.id">{{ probability.name }}
                             </option>
@@ -127,13 +127,13 @@
                 <div class="flex justify-center">
                     <div class="w-10/12">
                         <div>
-                            <label class="block font-medium text-label text-gray-700" for="impact_true">Impacto TRUE</label>
+                            <label class="block font-medium text-label text-gray-700" for="impact_true">{{ $t('answer.imp') }}</label>
                         </div>
                         <select id="impact_true"
                                 name="impact_true"
                                 v-model="impact_true"
                                 class="my-2 block w-full rounded-md border-0 bg-white py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6">
-                            <option value="" selected>Elige una Opción</option>
+                            <option value="" selected>{{ $t('messages.option') }}</option>
                             <option v-for="impact in impacts" :value="impact.id"
                                     :key="impact.id">{{ impact.name }}
                             </option>
@@ -142,11 +142,11 @@
                 </div>
             </details>
             <details class="pl-4">
-                <summary>Respuesta Negativa</summary>
+                <summary>{{ $t('answer.false') }}</summary>
                 <div class="flex justify-center">
                     <div class="w-10/12">
                         <div>
-                            <label class="block font-medium text-label text-gray-700" for="recommendation_false">Recomendacion FALSE</label>
+                            <label class="block font-medium text-label text-gray-700" for="recommendation_false">{{ $t('answer.reco') }}</label>
                         </div>
                         <div>
                             <input
@@ -163,13 +163,13 @@
                 <div class="flex justify-center">
                     <div class="w-10/12">
                         <div>
-                            <label class="block font-medium text-label text-gray-700" for="risk_false">Riesgo FALSE</label>
+                            <label class="block font-medium text-label text-gray-700" for="risk_false">{{ $t('answer.risk') }}</label>
                         </div>
                         <select id="risk_false"
                                 name="risk_false"
                                 v-model="risk_false"
                                 class="my-2 block w-full rounded-md border-0 bg-white py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6">
-                            <option value="" selected>Elige una Opción</option>
+                            <option value="" selected>{{ $t('messages.option') }}</option>
                             <option v-for="risk in risks" :value="risk.id"
                                     :key="risk.id">{{ risk.name }}
                             </option>
@@ -179,13 +179,13 @@
                 <div class="flex justify-center">
                     <div class="w-10/12">
                         <div>
-                            <label class="block font-medium text-label text-gray-700" for="intervention_false">Intervencion FALSE</label>
+                            <label class="block font-medium text-label text-gray-700" for="intervention_false">{{ $t('answer.inter') }}</label>
                         </div>
                         <select id="intervention_false"
                                 name="intervention_false"
                                 v-model="intervention_false"
                                 class="my-2 block w-full rounded-md border-0 bg-white py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6">
-                            <option value="" selected>Elige una Opción</option>
+                            <option value="" selected>{{ $t('messages.option') }}</option>
                             <option v-for="intervention in interventions" :value="intervention.id"
                                     :key="intervention.id">{{ intervention.name }}
                             </option>
@@ -195,13 +195,13 @@
                 <div class="flex justify-center">
                     <div class="w-10/12">
                         <div>
-                            <label class="block font-medium text-label text-gray-700" for="measure_false">Tipo de medida FALSE</label>
+                            <label class="block font-medium text-label text-gray-700" for="measure_false">{{ $t('answer.reco') }}</label>
                         </div>
                         <select id="measure_false"
                                 name="measure_false"
                                 v-model="measure_false"
                                 class="my-2 block w-full rounded-md border-0 bg-white py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6">
-                            <option value="" selected>Elige una Opción</option>
+                            <option value="" selected>{{ $t('messages.option') }}</option>
                             <option v-for="type_measure in type_measures" :value="type_measure.id"
                                     :key="type_measure.id">{{ type_measure.name }}
                             </option>
@@ -211,13 +211,13 @@
                 <div class="flex justify-center">
                     <div class="w-10/12">
                         <div>
-                            <label class="block font-medium text-label text-gray-700" for="probability_false">Probabilidad FALSE</label>
+                            <label class="block font-medium text-label text-gray-700" for="probability_false">{{ $t('answer.prob') }}</label>
                         </div>
                         <select id="probability_false"
                                 name="probability_false"
                                 v-model="probability_false"
                                 class="my-2 block w-full rounded-md border-0 bg-white py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6">
-                            <option value="" selected>Elige una Opción</option>
+                            <option value="" selected>{{ $t('messages.option') }}</option>
                             <option v-for="probability in probabilities" :value="probability.id"
                                     :key="probability.id">{{ probability.name }}
                             </option>
@@ -227,13 +227,13 @@
                 <div class="flex justify-center">
                     <div class="w-10/12">
                         <div>
-                            <label class="block font-medium text-label text-gray-700" for="impact_false">Impacto FALSE</label>
+                            <label class="block font-medium text-label text-gray-700" for="impact_false">{{ $t('answer.imp') }}</label>
                         </div>
                         <select id="impact_false"
                                 name="impact_false"
                                 v-model="impact_false"
                                 class="my-2 block w-full rounded-md border-0 bg-white py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6">
-                            <option value="" selected>Elige una Opción</option>
+                            <option value="" selected>{{ $t('messages.option') }}</option>
                             <option v-for="impact in impacts" :value="impact.id"
                                     :key="impact.id">{{ impact.name }}
                             </option>
@@ -250,7 +250,7 @@
                     <div class="flex justify-center">
                         <button
                             class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded items-center"
-                            type="submit" value="Save" v-bind:disabled="sending" >Enviar
+                            type="submit" value="Save" v-bind:disabled="sending" >{{ $t('form.send') }}
                         </button>
                     </div>
                 </div>
