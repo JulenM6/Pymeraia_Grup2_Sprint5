@@ -67,7 +67,7 @@
                                     :class="{ 'opacity-50 cursor-not-allowed': currentPage === pageCount }"
                                     :disabled="currentPage === pageCount" @click="currentPage++">{{ $t('pagination.next') }}
                                     &raquo;</button>
-                                <button v-if="surveySend && questions.length > 1" @click="submitAnswers"
+                                <button v-if="surveySend && questions.length > 0" @click="submitAnswers"
                                     class="relative inline-flex items-center rounded-md bg-orange-600 py-2 px-3 font-semibold text-white hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
                                     :class="{ 'opacity-50 cursor-not-allowed': hasError === 0 }" :disabled="hasError === 0">
                                     <PaperAirplaneIcon class="h-5 w-5 mr-1" aria-hidden="true" /> {{ $t('survey.send') }}
