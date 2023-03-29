@@ -15,7 +15,6 @@
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-                    <th scope="col" class="px-6 py-3">{{ __('table.id') }}</th>
                     <th scope="col" class="px-6 py-3">{{ __('report.answer') }}</th>
                     <th scope="col" class="px-6 py-3">{{ __('report.recommendation') }}</th>
                     <th scope="col" class="px-6 py-3">{{ __('report.question') }}</th>
@@ -29,7 +28,6 @@
             <tbody>
                 @foreach ($report->answers as $answer)
                     <tr>
-                        <th scope="row">{{ $answer->id }}</th>
                         <td class="px-6 py-4">{{ $answer->name }}</td>
                         <td class="px-6 py-4">{{ $answer->recommendation }}</td>
                         <td class="px-6 py-4">{{ $answer->question->name }}</td>
@@ -52,7 +50,7 @@
             <div class="text-white">
                 <h6 class="font-bold text-lg ">{{ __('footer.contact') }}</h6>
                 <ul class="mt-4 ">
-                    <li><a href="tel:682849274" class="text-lg">682849274</a>
+                    <li><a href="tel:682849274">682849274</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="mailto:support@pymeshield.com" class="text-lg">info@pymeshield.com</a>
                     </li>

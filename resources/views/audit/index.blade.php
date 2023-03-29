@@ -7,9 +7,6 @@
                 <tr class="bg-orange-400 text-white">
 
                     <th scope="col" class="px-6 py-3 uppercase">
-                        {{ __('table.id') }}
-                    </th>
-                    <th scope="col" class="px-6 py-3 uppercase">
                         {{ __('table.name') }}
                     </th>
                     <th scope="col" class="px-6 py-3 uppercase">
@@ -29,9 +26,6 @@
                 @foreach ($audits as $audit)
                     <tr class="bg-orange-50 hover:bg-orange-100 text-center">
 
-                        <th scope="row" class="px-6 py-3 uppercase">
-                            {{ $audit->id }}
-                        </th>
                         <td class="px-6 py-4">
                             {{ $audit->name }}
                         </td>
