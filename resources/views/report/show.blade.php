@@ -15,9 +15,7 @@
         <table class="table-auto w-full shadow-lg rounded-lg">
             <thead>
                 <tr class="bg-orange-400 text-white">
-                    <th class="px-6 py-3 uppercase">
-                        {{ __('table.id') }}
-                    </th>
+                    
                     <th class="px-6 py-3 uppercase">
                         {{ __('report.answer') }}
                     </th>
@@ -48,9 +46,7 @@
                 @foreach ($report as $row)
                     <tr class="bg-orange-50 hover:bg-orange-100 text-center">
 
-                        <th scope="row" class="px-6 py-3 uppercase">
-                            {{ $row->id }}
-                        </th>
+                       
                         <td class="px-6 py-4">
                             {{ $row->answers }}
                         </td>

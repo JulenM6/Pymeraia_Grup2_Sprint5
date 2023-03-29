@@ -66,6 +66,8 @@
     "answer.inter": "Intervenció",
     "answer.prob": "Probabilitat",
     "answer.imp": "Impacte",
+    "answer.true": "Resposta Afirmativa",
+    "answer.false": "Resposta Negativa",
     "survey.name": "Nom auditoria:",
     "survey.question": "Pregunta",
     "survey.answer": "Resposta",
